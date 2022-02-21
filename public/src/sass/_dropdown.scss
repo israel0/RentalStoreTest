@@ -1,0 +1,21 @@
+/*
+ |--------------------------------------------------------------------------
+ | Dropdown Component
+ |--------------------------------------------------------------------------
+ | Documentation details:
+ | https://getbootstrap.com/docs/5.1/components/dropdowns/#variables
+ |
+ */
+
+$dropdown-padding-y: 0;
+$dropdown-bg: transparent;
+$dropdown-border-color: transparent;
+$dropdown-item-padding-y: $spacer * 0.5;
+$dropdown-item-padding-x: $spacer * 0.5;
+$dropdown-divider-bg: $gray-200;
+$dropdown-link-color: $gray-800;
+$dropdown-link-hover-color: $gray-800;
+$dropdown-border-radius: $border-radius-md;
+$dropdown-border-width: 0;
+$dropdown-header-color: $gray-800;
+$dropdown-header-padding: $dropdown-item-padding-y $dropdown-item-padding-x;

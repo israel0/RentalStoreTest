@@ -1,0 +1,23 @@
+// Default Form Control
+.form-control {
+    @include apply("shadow-sm");
+}
+
+// Default Sizes
+.form-control-sm {
+    @include apply("lh-sm min-vh-0");
+}
+.form-control-lg {
+    @include apply("lh-lg");
+}
+
+// Form Control Rounded
+.form-control-rounded {
+    @include apply("rounded-pill");
+}
+
+.dark {
+    .form-control {
+        @include apply("text-white bg-dark-2 !border-dark-2");
+    }
+}

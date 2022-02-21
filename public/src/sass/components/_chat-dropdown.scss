@@ -1,0 +1,35 @@
+.chat-dropdown {
+    width: 320px;
+    box-shadow: 0px 3px 10px #00000017;
+    @include apply("h-0 overflow-hidden");
+    &.show {
+        @include apply("h-auto overflow-auto");
+    }
+    .chat-dropdown__box {
+        height: 364px;
+        .chat-dropdown__box__tabs {
+            @include apply("text-gray-600");
+            .nav-link {
+                &.active {
+                    @include apply(
+                        "!bg-gray-300 border-bottom-0 text-gray-600"
+                    );
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .chat-dropdown {
+        .chat-dropdown__box {
+            .chat-dropdown__box__tabs {
+                .nav-link {
+                    &.active {
+                        @include apply("!bg-dark-3 text-white");
+                    }
+                }
+            }
+        }
+    }
+}

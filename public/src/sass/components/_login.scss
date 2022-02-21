@@ -1,0 +1,39 @@
+.login {
+    @include apply("position-relative bg-white");
+    @include media-breakpoint-down(xl) {
+        background: linear-gradient(to bottom, #1c3faa, #2b51b4);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    &:before {
+        content: "";
+        margin-left: -48%;
+        background-image: url(../images/bg-login-page.svg);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: right;
+        @include apply("w-full h-full position-absolute top-0 start-0");
+        @include media-breakpoint-down(xl) {
+            @include apply("d-none");
+        }
+    }
+    .login__input {
+        min-width: 350px;
+        box-shadow: 0px 3px 5px #00000007;
+        @include media-breakpoint-down(xl) {
+            @include apply("min-vw-full");
+        }
+    }
+}
+
+.dark {
+    .login {
+        @include apply("bg-dark-1");
+        &:before {
+            background-image: url(../images/bg-login-page-dark.svg);
+        }
+        @include media-breakpoint-down(xl) {
+            background: #232a3b;
+        }
+    }
+}

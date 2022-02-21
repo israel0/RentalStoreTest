@@ -1,0 +1,13 @@
+/* purgecss start ignore */
+.toastify-content {
+    @include apply(
+        "py-5 ps-5 pe-14 bg-white border border-gray-200 rounded-3 shadow-xl"
+    );
+}
+
+.dark {
+    .toastify-content {
+        @include apply("bg-dark-3 text-gray-300");
+    }
+}
+/* purgecss end ignore */

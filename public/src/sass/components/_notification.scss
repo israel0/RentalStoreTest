@@ -1,0 +1,15 @@
+.notification {
+    @include apply("position-relative text-theme-7");
+    &.notification--light {
+        @include apply("text-theme-30");
+    }
+    .notification__icon {
+        @include apply("w-5 h-5");
+    }
+    &.notification--bullet:before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        @include apply("rounded-circle position-absolute end-0 bg-theme-6");
+    }
+}

@@ -1,0 +1,41 @@
+.inbox {
+    .inbox__item {
+        transition-property: background-color, border-color, color, fill, stroke,
+            opacity, box-shadow, transform, filter, backdrop-filter;
+        transition-duration: 200ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        @include apply("cursor-pointer");
+        &:hover {
+            transform: scale(1.02, 1.02);
+            @include apply("position-relative z-20 shadow-md border-0 rounded");
+        }
+        &.inbox__item--active {
+            @include apply("!bg-white !text-gray-800");
+            .inbox__item--sender {
+                @include apply("!fw-medium");
+            }
+            .inbox__item--highlight {
+                @include apply("!fw-medium");
+            }
+            .inbox__item--time {
+                @include apply("!fw-medium");
+            }
+        }
+    }
+    .form-check-input {
+        @include apply("border-gray-500");
+        &:checked {
+            @include apply("border-theme-1");
+        }
+    }
+}
+
+.dark {
+    .inbox {
+        .inbox__item {
+            &.inbox__item--active {
+                @include apply("!bg-dark-3 !text-gray-300");
+            }
+        }
+    }
+}

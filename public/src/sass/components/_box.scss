@@ -1,0 +1,10 @@
+.box {
+    box-shadow: 0px 3px 20px #0000000b;
+    @include apply("bg-white border-transparent rounded-2 position-relative");
+}
+
+.dark {
+    .box {
+        @include apply("!bg-dark-3");
+    }
+}

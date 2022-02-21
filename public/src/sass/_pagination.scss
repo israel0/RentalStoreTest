@@ -1,0 +1,16 @@
+/*
+ |--------------------------------------------------------------------------
+ | Pagination Component
+ |--------------------------------------------------------------------------
+ | Documentation details:
+ | https://getbootstrap.com/docs/5.1/components/pagination/#variables
+ |
+ */
+
+$pagination-padding-y: $spacer * 0.5;
+$pagination-padding-x: $spacer * 0.75;
+$pagination-bg: transparent;
+$pagination-border-width: 0;
+$pagination-border-radius: 0;
+$pagination-active-color: $gray-800;
+$pagination-active-bg: $white;

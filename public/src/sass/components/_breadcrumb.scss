@@ -1,0 +1,37 @@
+.breadcrumb {
+    @include apply("d-flex mb-0 align-items-center text-theme-1");
+    &.breadcrumb--light {
+        @include apply(
+            "h-full ms-10 ps-10 border-start border-theme-29 text-theme-22"
+        );
+        @include media-breakpoint-down(md) {
+            @include apply("ms-0 ps-0 border-start-0");
+        }
+        .breadcrumb--active {
+            @include apply("text-theme-21");
+        }
+    }
+    .breadcrumb__icon {
+        width: 14px;
+        height: 14px;
+        @include apply("mx-1");
+    }
+    .breadcrumb--active {
+        @include apply("text-gray-800 cursor-text");
+    }
+}
+
+.dark {
+    .breadcrumb {
+        @include apply("border-dark-3 text-theme-10");
+        &.breadcrumb--light {
+            @include apply("text-theme-10");
+            .breadcrumb--active {
+                @include apply("text-gray-600");
+            }
+        }
+        .breadcrumb--active {
+            @include apply("text-gray-600");
+        }
+    }
+}

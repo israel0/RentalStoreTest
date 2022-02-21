@@ -1,0 +1,34 @@
+.search-result {
+    width: 450px;
+    z-index: 20;
+    @include apply(
+        "position-absolute end-0 mt-1 visibility-invisible opacity-0"
+    );
+    transition: visibility 0s linear 0.2s, opacity 0.2s 0s;
+    &.show {
+        transition: visibility 0s linear 0s, opacity 0.2s 0s;
+        @include apply("visibility-visible opacity-100");
+        > .search-result__content {
+            margin-top: -1px;
+            .tab-content .tab-pane {
+                @include apply("visibility-visible");
+            }
+        }
+    }
+    .search-result__content {
+        transition: margin-top 0.2s;
+        @include apply("p-5 mt-5");
+        @extend .box;
+        .search-result__content__title {
+            @include apply("fw-medium mb-2");
+        }
+    }
+}
+
+.dark {
+    .search-result {
+        .search-result__content {
+            @include apply("!bg-dark-6");
+        }
+    }
+}

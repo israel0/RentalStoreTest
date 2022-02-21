@@ -1,0 +1,278 @@
+// Default Button
+.btn {
+    @include apply(
+        "d-inline-flex vertical-align-baseline justify-content-center align-items-center shadow-sm"
+    );
+}
+
+// Default Sizes
+.btn-sm {
+    line-height: $line-height-sm;
+}
+.btn-lg {
+    line-height: $line-height-lg;
+}
+
+// Button Colors
+.btn-secondary {
+    @include apply("text-gray-600");
+    &:hover:not(:disabled) {
+        @include apply("bg-gray-300 text-gray-700");
+    }
+}
+.btn-success {
+    @include apply("text-white");
+    &:hover:not(:disabled) {
+        @include apply("text-white");
+    }
+}
+.dark {
+    .btn-primary {
+        @include apply("border-primary");
+    }
+    .btn-success {
+        @include apply("border-success");
+    }
+    .btn-warning {
+        @include apply("border-warning");
+    }
+    .btn-danger {
+        @include apply("border-danger");
+    }
+    .btn-secondary {
+        @include apply("bg-dark-5 border-dark-5 text-gray-400");
+        &:hover:not(:disabled) {
+            @include apply(
+                "bg-dark-5 border-dark-5 text-gray-400 bg-opacity-80 border-opacity-80"
+            );
+        }
+    }
+    .btn-dark {
+        @include apply("border-dark-6 bg-dark-6 text-gray-400");
+        &:hover:not(:disabled) {
+            @include apply(
+                "border-dark-6 bg-dark-6 text-gray-400 bg-opacity-80 border-opacity-80"
+            );
+        }
+    }
+}
+
+// Button Elevated
+.btn-elevated {
+    @include apply("shadow-md");
+}
+.btn-elevated-primary {
+    @extend .btn-elevated;
+    @extend .btn-primary;
+}
+.btn-elevated-secondary {
+    @extend .btn-elevated;
+    @extend .btn-secondary;
+}
+.btn-elevated-success {
+    @extend .btn-elevated;
+    @extend .btn-success;
+}
+.btn-elevated-warning {
+    @extend .btn-elevated;
+    @extend .btn-warning;
+}
+.btn-elevated-danger {
+    @extend .btn-elevated;
+    @extend .btn-danger;
+}
+.btn-elevated-dark {
+    @extend .btn-elevated;
+    @extend .btn-dark;
+}
+
+// Button Rounded
+.btn-rounded {
+    @include apply("rounded-pill");
+}
+.btn-rounded-primary {
+    @extend .btn-rounded;
+    @extend .btn-primary;
+}
+.btn-rounded-secondary {
+    @extend .btn-rounded;
+    @extend .btn-secondary;
+}
+.btn-rounded-success {
+    @extend .btn-rounded;
+    @extend .btn-success;
+}
+.btn-rounded-warning {
+    @extend .btn-rounded;
+    @extend .btn-warning;
+}
+.btn-rounded-danger {
+    @extend .btn-rounded;
+    @extend .btn-danger;
+}
+.btn-rounded-dark {
+    @extend .btn-rounded;
+    @extend .btn-dark;
+}
+
+// Button Elevated Rounded
+.btn-elevated-rounded {
+    @extend .btn-elevated;
+    @extend .btn-rounded;
+}
+.btn-elevated-rounded-primary {
+    @extend .btn-elevated-rounded;
+    @extend .btn-primary;
+}
+.btn-elevated-rounded-secondary {
+    @extend .btn-elevated-rounded;
+    @extend .btn-secondary;
+}
+.btn-elevated-rounded-success {
+    @extend .btn-elevated-rounded;
+    @extend .btn-success;
+}
+.btn-elevated-rounded-warning {
+    @extend .btn-elevated-rounded;
+    @extend .btn-warning;
+}
+.btn-elevated-rounded-danger {
+    @extend .btn-elevated-rounded;
+    @extend .btn-danger;
+}
+.btn-elevated-rounded-dark {
+    @extend .btn-elevated-rounded;
+    @extend .btn-dark;
+}
+
+// Outline Button
+.btn-outline-secondary {
+    @include apply("border-gray-300 text-gray-700");
+}
+.dark {
+    .btn-outline-primary {
+        @include apply("border-theme-3 text-theme-3");
+        &:hover:not(:disabled) {
+            @include apply("text-white");
+        }
+    }
+    .btn-outline-secondary {
+        @include apply("border-gray-700 text-gray-400");
+        &:hover:not(:disabled) {
+            @include apply("bg-gray-700 border-gray-700");
+        }
+    }
+    .btn-outline-success {
+        @include apply("border-success");
+    }
+    .btn-outline-warning {
+        @include apply("border-warning");
+    }
+    .btn-outline-danger {
+        @include apply("border-danger");
+    }
+    .btn-outline-dark {
+        @include apply("border-gray-700 text-gray-500");
+    }
+}
+
+// Social Media Button
+.btn-twitter {
+    @include apply("text-white");
+}
+.btn-instagram {
+    @include apply("text-white");
+}
+.dark {
+    .btn-facebook {
+        @include apply("border-facebook");
+    }
+    .btn-twitter {
+        @include apply("border-twitter");
+    }
+    .btn-instagram {
+        @include apply("border-instagram");
+    }
+    .btn-linkedin {
+        @include apply("border-linkedin");
+    }
+}
+
+// Button Soft Colors
+.btn-primary-soft {
+    @include apply(
+        "bg-theme-1 border-theme-1 bg-opacity-20 border-opacity-5 text-theme-10"
+    );
+    &:hover:not(:disabled) {
+        @include apply("bg-opacity-10 border-opacity-10 text-theme-10");
+    }
+}
+.btn-secondary-soft {
+    @include apply(
+        "bg-gray-300 border-gray-300 bg-opacity-20 border-opacity-5 text-gray-500"
+    );
+    &:hover:not(:disabled) {
+        @include apply("bg-opacity-50 border-opacity-50 text-gray-500");
+    }
+}
+.btn-success-soft {
+    @include apply(
+        "bg-success border-success bg-opacity-20 border-opacity-5 text-success"
+    );
+    &:hover:not(:disabled) {
+        @include apply("bg-opacity-10 border-opacity-10 text-success");
+    }
+}
+.btn-warning-soft {
+    @include apply(
+        "bg-warning border-warning bg-opacity-20 border-opacity-5 text-theme-11"
+    );
+    &:hover:not(:disabled) {
+        @include apply("bg-opacity-10 border-opacity-10 text-theme-11");
+    }
+}
+.btn-danger-soft {
+    @include apply(
+        "bg-danger border-danger bg-opacity-20 border-opacity-5 text-danger"
+    );
+    &:hover:not(:disabled) {
+        @include apply("bg-opacity-10 border-opacity-10 text-danger");
+    }
+}
+.btn-dark-soft {
+    @include apply(
+        "bg-gray-800 border-gray-800 bg-opacity-20 border-opacity-5 text-gray-600"
+    );
+    &:hover:not(:disabled) {
+        @include apply("bg-opacity-10 border-opacity-10 text-gray-600");
+    }
+}
+.dark {
+    .btn-primary-soft {
+        @include apply("border-theme-1 border-opacity-5");
+        &:hover:not(:disabled) {
+            @include apply("bg-opacity-80");
+        }
+    }
+    .btn-secondary-soft {
+        @include apply("border-gray-300 border-opacity-20");
+        &:hover:not(:disabled) {
+            @include apply("text-gray-800");
+        }
+    }
+    .btn-success-soft {
+        @include apply("border-success border-opacity-20");
+    }
+    .btn-warning-soft {
+        @include apply("border-warning border-opacity-20");
+    }
+    .btn-danger-soft {
+        @include apply("border-danger border-opacity-20");
+    }
+    .btn-dark-soft {
+        @include apply("border-gray-800 border-opacity-5");
+        &:hover:not(:disabled) {
+            @include apply("bg-opacity-80");
+        }
+    }
+}

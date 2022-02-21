@@ -1,0 +1,211 @@
+@use "sass:math";
+
+/* purgecss start ignore */
+.tns-outer {
+    padding: 0 !important;
+    [hidden] {
+        display: none !important;
+    }
+    [aria-controls],
+    [data-action] {
+        cursor: pointer;
+    }
+}
+.tns-slider {
+    -webkit-transition: all 0s;
+    -moz-transition: all 0s;
+    transition: all 0s;
+    > .tns-item {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+.tns-horizontal {
+    &.tns-subpixel {
+        white-space: nowrap;
+        > .tns-item {
+            display: inline-block;
+            vertical-align: top;
+            white-space: normal;
+        }
+    }
+    &.tns-no-subpixel {
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        > .tns-item {
+            float: left;
+        }
+    }
+    &.tns-carousel {
+        &.tns-no-subpixel {
+            > .tns-item {
+                margin-right: -100%;
+            }
+        }
+    }
+}
+.tns-no-calc {
+    position: relative;
+    left: 0;
+}
+.tns-gallery {
+    position: relative;
+    left: 0;
+    min-height: 1px;
+    > .tns-item {
+        position: absolute;
+        left: -100%;
+        -webkit-transition: transform 0s, opacity 0s;
+        -moz-transition: transform 0s, opacity 0s;
+        transition: transform 0s, opacity 0s;
+    }
+    > .tns-slide-active {
+        position: relative;
+        left: auto !important;
+    }
+    > .tns-moving {
+        -webkit-transition: all 0.25s;
+        -moz-transition: all 0.25s;
+        transition: all 0.25s;
+    }
+}
+.tns-autowidth {
+    display: inline-block;
+}
+.tns-lazy-img {
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+    opacity: 0.6;
+    &.tns-complete {
+        opacity: 1;
+    }
+}
+.tns-ah {
+    -webkit-transition: height 0s;
+    -moz-transition: height 0s;
+    transition: height 0s;
+}
+.tns-ovh {
+    overflow: hidden;
+}
+.tns-visually-hidden {
+    position: absolute;
+    left: -10000em;
+}
+.tns-transparent {
+    opacity: 0;
+    visibility: hidden;
+}
+.tns-fadeIn {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    z-index: 0;
+}
+.tns-normal,
+.tns-fadeOut {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: -1;
+}
+.tns-vpfix {
+    white-space: nowrap;
+    > div,
+    > li {
+        display: inline-block;
+    }
+}
+$width: 310px;
+$height: 10px;
+$count: 70;
+$perpage: 3;
+.tns-t {
+    &-subp2 {
+        margin: 0 auto;
+        width: $width;
+        position: relative;
+        height: $height;
+        overflow: hidden;
+    }
+    &-ct {
+        width: math.div(100% * $count, $perpage);
+        width: -webkit-calc(100% * #{$count} / #{$perpage});
+        width: -moz-calc(100% * #{$count} / #{$perpage});
+        width: calc(100% * #{$count} / #{$perpage});
+        position: absolute;
+        right: 0;
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        > div {
+            width: math.div(100%, $count);
+            width: -webkit-calc(100% / #{$count});
+            width: -moz-calc(100% / #{$count});
+            width: calc(100% / #{$count});
+            height: $height;
+            float: left;
+        }
+    }
+}
+
+.tns-outer {
+    @include apply("position-relative");
+    .tns-controls button {
+        background: #71809647;
+        z-index: 10;
+        @include apply(
+            "w-5 h-5 text-transparent rounded-circle position-absolute top-0 bottom-0 my-auto"
+        );
+        &:hover {
+            @include apply("bg-gray-500");
+        }
+        &[data-controls="prev"] {
+            @include apply("start-0 ms-n6");
+            &:before {
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(102 113 132)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+                background-size: 80%;
+                background-position: center;
+                transform: rotate(90deg);
+                @include apply("w-full h-full position-absolute top-0 start-0");
+            }
+        }
+        &[data-controls="next"] {
+            @include apply("end-0 me-n6");
+            &:before {
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(102 113 132)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+                background-size: 80%;
+                background-position: center;
+                transform: rotate(-90deg);
+                @include apply("w-full h-full position-absolute top-0 start-0");
+            }
+        }
+    }
+    .tns-nav {
+        margin-bottom: -1.8rem;
+        z-index: 10;
+        @include apply(
+            "w-full position-absolute bottom-0 d-flex justify-content-center"
+        );
+        button {
+            @include apply("bg-gray-300 w-3 h-3 rounded-circle mx-1");
+            &.tns-nav-active {
+                @include apply("bg-gray-500");
+            }
+        }
+    }
+    button[data-action] {
+        @include apply("d-none");
+    }
+    .tns-visually-hidden {
+        @include apply("d-none");
+    }
+}
+/* purgecss end ignore */

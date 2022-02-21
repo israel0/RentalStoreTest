@@ -1,0 +1,20 @@
+.notification-content {
+    width: 350px;
+    @include media-breakpoint-down(sm) {
+        width: 280px;
+    }
+    .notification-content__title {
+        @include apply("fw-medium mb-5");
+    }
+    .notification-content__box {
+        @include apply("p-5");
+    }
+}
+
+.dark {
+    .notification-content {
+        .notification-content__box {
+            @include apply("bg-dark-6");
+        }
+    }
+}

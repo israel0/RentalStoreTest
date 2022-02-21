@@ -1,0 +1,37 @@
+.pos {
+    .pos-image {
+        &:before {
+            content: "";
+            padding-top: 100%;
+            @include apply("w-full d-block");
+        }
+        .pos-image__preview {
+            @include apply("position-absolute top-0 start-0 w-full h-full");
+            img {
+                @include apply("rounded-2");
+            }
+        }
+    }
+    .ticket-item {
+        transition-property: background-color, border-color, color, fill, stroke,
+            opacity, box-shadow, transform, filter, backdrop-filter;
+        transition-duration: 300ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+        .ticket-item__item-name {
+            max-width: 50%;
+        }
+    }
+    .pos__box {
+        height: 780px;
+    }
+}
+
+.dark {
+    .pos {
+        .pos__tabs {
+            .nav-link.active {
+                @include apply("!bg-theme-1");
+            }
+        }
+    }
+}

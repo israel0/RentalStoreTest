@@ -1,0 +1,86 @@
+// Global reset
+*,
+::before,
+::after {
+    border-width: 0;
+    border-style: solid;
+    border-color: $border-color;
+    box-sizing: border-box;
+}
+
+// Remove default margins
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre,
+body {
+    margin: 0;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+// Lists
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// Images
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+    display: block;
+    vertical-align: middle;
+}
+
+// Button focus
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+// Links
+a,
+a:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+// Input
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    line-height: inherit;
+    padding: 0;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}

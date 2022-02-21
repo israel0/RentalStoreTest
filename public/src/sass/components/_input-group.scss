@@ -1,0 +1,14 @@
+.input-group {
+    .input-group-text {
+        @include apply("shadow-sm");
+    }
+}
+
+.dark {
+    .input-group {
+        .input-group-text {
+            z-index: 2;
+            @include apply("bg-dark-1 !border-dark-4");
+        }
+    }
+}

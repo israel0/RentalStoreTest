@@ -1,0 +1,25 @@
+.report-timeline {
+    &:before {
+        content: "";
+        height: 85%;
+        @include apply("w-px bg-theme-5 position-absolute ms-5 mt-5");
+    }
+    .report-timeline__image {
+        &:before {
+            content: "";
+            @include apply("w-20 h-px bg-theme-5 position-absolute mt-5 ms-5");
+        }
+    }
+}
+.dark {
+    .report-timeline {
+        &:before {
+            @include apply("bg-dark-5");
+        }
+        .report-timeline__image {
+            &:before {
+                @include apply("bg-dark-5");
+            }
+        }
+    }
+}

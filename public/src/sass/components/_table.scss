@@ -1,0 +1,39 @@
+.table {
+    @include apply("mb-0");
+    th {
+        border-bottom-width: 2px;
+    }
+    > :not(:last-child) > :last-child > * {
+        border-bottom-color: inherit;
+    }
+}
+
+.dark {
+    .table {
+        @include apply("text-gray-300");
+        > :not(:last-child) > :last-child > * {
+            border-bottom-color: $dark-5;
+        }
+        thead,
+        tbody,
+        tfoot,
+        tr,
+        td,
+        th {
+            @include apply("border-dark-5");
+        }
+        &.table-striped > tbody > tr:nth-of-type(odd) {
+            @include apply("bg-dark-1 text-gray-300");
+        }
+        .table-dark,
+        &.table-dark {
+            --bs-table-bg: #{$dark-1};
+            tbody td {
+                @include apply("border-dark-3");
+            }
+        }
+        &.table-hover > tbody > tr:hover {
+            @include apply("text-gray-300");
+        }
+    }
+}

@@ -1,0 +1,18 @@
+/* purgecss start ignore */
+.toastify {
+    background: none;
+    @include apply("shadow-none text-gray-800 p-0");
+    @include media-breakpoint-down(md) {
+        max-width: calc(100% - 30px);
+    }
+    .toast-close {
+        @include apply(
+            "text-transparent position-absolute opacity-100 top-0 bottom-0 end-0 ps-3 d-flex align-items-center"
+        );
+        &:before {
+            content: "×";
+            @include apply("d-block text-gray-600 fs-3xl mt-n1.5 fw-light");
+        }
+    }
+}
+/* purgecss end ignore */

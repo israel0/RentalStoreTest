@@ -1,0 +1,21 @@
+/*
+ |--------------------------------------------------------------------------
+ | Button Component
+ |--------------------------------------------------------------------------
+ | Documentation details:
+ | https://getbootstrap.com/docs/5.1/components/buttons/#variables
+ |
+ */
+
+$btn-border-radius: $border-radius-md;
+$btn-border-radius-sm: $border-radius-md;
+$btn-border-radius-lg: $border-radius-md;
+$btn-font-weight: $font-weight-medium;
+$input-btn-padding-y: $spacer * 0.5;
+$input-btn-padding-x: $spacer * 0.75;
+$input-btn-padding-y-sm: $spacer * 0.375;
+$input-btn-padding-x-sm: $spacer * 0.5;
+$input-btn-padding-y-lg: $spacer * 0.375;
+$input-btn-padding-x-lg: $spacer * 1;
+$input-btn-font-size-sm: 0.75rem;
+$input-btn-font-size-lg: 1.125rem;

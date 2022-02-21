@@ -1,0 +1,32 @@
+.chat {
+    .chat__tabs .nav-link.active {
+        @include apply("bg-theme-1");
+    }
+    .chat__chat-list {
+        height: 525px;
+    }
+    .chat__user-list {
+        height: 525px;
+    }
+    .chat__box {
+        height: 782px;
+        .chat__box__text-box {
+            max-width: 49%;
+            @include media-breakpoint-down(sm) {
+                max-width: 90%;
+            }
+        }
+    }
+    .chat__box__input {
+        height: 46px;
+        resize: none;
+    }
+}
+
+.dark {
+    .chat {
+        .chat__tabs .nav-link.active {
+            @include apply("!bg-theme-1");
+        }
+    }
+}

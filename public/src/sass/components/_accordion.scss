@@ -1,0 +1,65 @@
+.accordion {
+    &:not(.accordion-boxed) .accordion-item {
+        @include apply("border-0");
+        &:not(:first-of-type):not(:last-of-type) {
+            @include apply("py-4");
+        }
+        &:first-of-type {
+            @include apply("pb-4");
+        }
+        &:last-of-type {
+            @include apply("pt-4");
+        }
+    }
+    &.accordion-boxed .accordion-item {
+        @include apply("p-4 border-gray-200");
+        &:not(:first-of-type) {
+            @include apply("mt-3");
+        }
+    }
+    .accordion-item {
+        &:not(:first-of-type) {
+            border-top: 0 solid;
+            @include apply("border-top border-gray-200");
+        }
+        .accordion-header {
+            .accordion-button {
+                @include apply("fw-medium");
+                &:not(.collapsed) {
+                    @include apply("bg-transparent shadow-none");
+                }
+            }
+        }
+        .accordion-collapse {
+            .accordion-body {
+                @include apply("text-gray-700 lh-lg mt-3");
+            }
+        }
+    }
+}
+
+.dark {
+    .accordion {
+        &.accordion-boxed .accordion-item {
+            @include apply("border-dark-5");
+        }
+        .accordion-item {
+            &:not(:first-of-type) {
+                @include apply("border-dark-5");
+            }
+            .accordion-header {
+                .accordion-button {
+                    @include apply("text-gray-300");
+                    &:not(.collapsed) {
+                        @include apply("text-theme-10");
+                    }
+                }
+            }
+            .accordion-collapse {
+                .accordion-body {
+                    @include apply("text-gray-600");
+                }
+            }
+        }
+    }
+}

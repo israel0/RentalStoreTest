@@ -1,0 +1,693 @@
+$utilities: map-merge(
+    $utilities,
+    (
+        "width": (
+            responsive: true,
+            property: width,
+            class: w,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "screen": 100vw,
+                        "auto": auto,
+                        "min": min-content,
+                        "max": max-content,
+                    )
+                ),
+        ),
+        "height": (
+            responsive: true,
+            property: height,
+            class: h,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "screen": 100vh,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "font-size": (
+            responsive: true,
+            property: font-size,
+            class: fs,
+            values: $font-sizes,
+        ),
+        "font-size-line-height": (
+            responsive: true,
+            property: line-height,
+            class: fs,
+            values: $font-size-line-heights,
+        ),
+        "text-line-height": (
+            responsive: true,
+            property: line-height,
+            class: lh,
+            values: (
+                "1": 1,
+                "3": $line-height-3,
+                "4": $line-height-4,
+                "5": $line-height-5,
+                "6": $line-height-6,
+                "7": $line-height-7,
+                "8": $line-height-8,
+                "9": $line-height-9,
+                "sm": $line-height-sm,
+                "base": $line-height-base,
+                "lg": $line-height-lg,
+            ),
+        ),
+        "font-family": (
+            property: font-family,
+            class: font,
+            values: (
+                "roboto": var(--#{$variable-prefix}font-roboto),
+            ),
+        ),
+        "font-weight": (
+            property: font-weight,
+            class: fw,
+            values: (
+                light: $font-weight-light,
+                lighter: $font-weight-lighter,
+                normal: $font-weight-normal,
+                medium: $font-weight-medium,
+                semibold: $font-weight-semibold,
+                bold: $font-weight-bold,
+                bolder: $font-weight-bolder,
+            ),
+        ),
+        "bg-opacity": (
+            css-var: true,
+            class: bg-opacity,
+            state: hover,
+            values: $bg-opacity,
+        ),
+        "border-opacity": (
+            css-var: true,
+            class: border-opacity,
+            values: $border-opacity,
+        ),
+        "text-opacity": (
+            css-var: true,
+            class: text-opacity,
+            values: $text-opacity,
+        ),
+        "min-viewport-width": (
+            responsive: true,
+            property: min-width,
+            class: min-vw,
+            values: (
+                "0": 0px,
+                "full": 100%,
+                "screen": 100vw,
+            ),
+        ),
+        "max-width": (
+            responsive: true,
+            property: max-width,
+            class: mw,
+            values: (
+                "0": 0px,
+                "full": 100%,
+                "screen": 100vw,
+            ),
+        ),
+        "min-viewport-height": (
+            responsive: true,
+            property: min-height,
+            class: min-vh,
+            values: (
+                "0": 0px,
+                "full": 100%,
+                "screen": 100vh,
+            ),
+        ),
+        "max-height": (
+            responsive: true,
+            property: max-height,
+            class: mh,
+            values: (
+                "0": 0px,
+                "full": 100%,
+                "screen": 100vh,
+            ),
+        ),
+        "border": (
+            responsive: true,
+            property: border-width,
+            class: border,
+            values: (
+                null: $border-width,
+                "0": 0,
+                "2": 2px,
+            ),
+        ),
+        "border-top": (
+            responsive: true,
+            property: border-top-width,
+            class: border-top,
+            values: (
+                null: $border-width,
+                "0": 0,
+                "2": 2px,
+            ),
+        ),
+        "border-end": (
+            responsive: true,
+            property: border-right-width,
+            class: border-end,
+            values: (
+                null: $border-width,
+                "0": 0,
+                "2": 2px,
+            ),
+        ),
+        "border-bottom": (
+            responsive: true,
+            property: border-bottom-width,
+            class: border-bottom,
+            values: (
+                null: $border-width,
+                "0": 0,
+                "2": 2px,
+            ),
+        ),
+        "border-start": (
+            responsive: true,
+            property: border-left-width,
+            class: border-start,
+            values: (
+                null: $border-width,
+                "0": 0,
+                "2": 2px,
+            ),
+        ),
+        "border-style": (
+            property: border-style,
+            class: border,
+            values: (
+                solid: solid,
+                dashed: dashed,
+                dotted: dotted,
+                double: double,
+                none: none,
+            ),
+        ),
+        "margin": (
+            responsive: true,
+            property: margin,
+            class: m,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "margin-x": (
+            responsive: true,
+            property: margin-right margin-left,
+            class: mx,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "margin-y": (
+            responsive: true,
+            property: margin-top margin-bottom,
+            class: my,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "margin-top": (
+            responsive: true,
+            property: margin-top,
+            class: mt,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "margin-end": (
+            responsive: true,
+            property: margin-right,
+            class: me,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "margin-bottom": (
+            responsive: true,
+            property: margin-bottom,
+            class: mb,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "margin-start": (
+            responsive: true,
+            property: margin-left,
+            class: ms,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                        "auto": auto,
+                    )
+                ),
+        ),
+        "padding": (
+            responsive: true,
+            property: padding,
+            class: p,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                    )
+                ),
+        ),
+        "padding-x": (
+            responsive: true,
+            property: padding-right padding-left,
+            class: px,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                    )
+                ),
+        ),
+        "padding-y": (
+            responsive: true,
+            property: padding-top padding-bottom,
+            class: py,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                    )
+                ),
+        ),
+        "padding-top": (
+            responsive: true,
+            property: padding-top,
+            class: pt,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                    )
+                ),
+        ),
+        "padding-end": (
+            responsive: true,
+            property: padding-right,
+            class: pe,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                    )
+                ),
+        ),
+        "padding-bottom": (
+            responsive: true,
+            property: padding-bottom,
+            class: pb,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                    )
+                ),
+        ),
+        "padding-start": (
+            responsive: true,
+            property: padding-left,
+            class: ps,
+            values:
+                map-merge(
+                    $spacers,
+                    (
+                        "0": 0px,
+                    )
+                ),
+        ),
+        "opacity": (
+            property: opacity,
+            values: (
+                "0": 0,
+                "5": 0.05,
+                "10": 0.1,
+                "20": 0.2,
+                "25": 0.25,
+                "30": 0.3,
+                "40": 0.4,
+                "50": 0.5,
+                "60": 0.6,
+                "70": 0.7,
+                "75": 0.75,
+                "80": 0.8,
+                "90": 0.9,
+                "95": 0.95,
+                "100": 1,
+            ),
+        ),
+        "rounded": (
+            responsive: true,
+            property: border-radius,
+            class: rounded,
+            values: (
+                null: $border-radius,
+                "0": 0,
+                "1": $border-radius-sm,
+                "2": $border-radius-md,
+                "3": $border-radius-lg,
+                "circle": 50%,
+                "pill": $border-radius-pill,
+                "none": none,
+            ),
+        ),
+        "rounded-top": (
+            responsive: true,
+            property: border-top-left-radius border-top-right-radius,
+            class: rounded-top,
+            values: (
+                null: $border-radius,
+                "0": 0,
+                "1": $border-radius-sm,
+                "2": $border-radius-md,
+                "3": $border-radius-lg,
+                "circle": 50%,
+                "pill": $border-radius-pill,
+                "none": none,
+            ),
+        ),
+        "rounded-end": (
+            responsive: true,
+            property: border-top-right-radius border-bottom-right-radius,
+            class: rounded-end,
+            values: (
+                null: $border-radius,
+                "0": 0,
+                "1": $border-radius-sm,
+                "2": $border-radius-md,
+                "3": $border-radius-lg,
+                "circle": 50%,
+                "pill": $border-radius-pill,
+                "none": none,
+            ),
+        ),
+        "rounded-bottom": (
+            responsive: true,
+            property: border-bottom-right-radius border-bottom-left-radius,
+            class: rounded-bottom,
+            values: (
+                null: $border-radius,
+                "0": 0,
+                "1": $border-radius-sm,
+                "2": $border-radius-md,
+                "3": $border-radius-lg,
+                "circle": 50%,
+                "pill": $border-radius-pill,
+                "none": none,
+            ),
+        ),
+        "rounded-start": (
+            responsive: true,
+            property: border-bottom-left-radius border-top-left-radius,
+            class: rounded-start,
+            values: (
+                null: $border-radius,
+                "0": 0,
+                "1": $border-radius-sm,
+                "2": $border-radius-md,
+                "3": $border-radius-lg,
+                "circle": 50%,
+                "pill": $border-radius-pill,
+                "none": none,
+            ),
+        ),
+        "border-color": (
+            responsive: true,
+            property: border-color,
+            class: border,
+            local-vars: (
+                "border-opacity": 1,
+            ),
+            values:
+                map-merge(
+                    $utilities-border-colors,
+                    (
+                        "white": $white,
+                        "transparent": transparent,
+                    )
+                ),
+        ),
+        "cursor": (
+            property: cursor,
+            values: auto default pointer wait text move help not-allowed,
+        ),
+        "flex": (
+            responsive: true,
+            property: flex,
+            values: (
+                "1": 1 1 0%,
+                "fill": 1 1 auto,
+                "initial": 0 1 auto,
+                "none": none,
+            ),
+        ),
+        "shadow": (
+            responsive: true,
+            property: box-shadow,
+            class: shadow,
+            values: (
+                null: $box-shadow,
+                "sm": $box-shadow-sm,
+                "md": $box-shadow-md,
+                "lg": $box-shadow-lg,
+                "xl": $box-shadow-xl,
+                "none": none,
+            ),
+        ),
+        "grid-rows": (
+            responsive: true,
+            css-var: true,
+            class: rows,
+            values: (
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 4,
+                "5": 5,
+                "6": 6,
+                "7": 7,
+                "8": 8,
+                "9": 9,
+                "10": 10,
+                "11": 11,
+                "12": 12,
+            ),
+        ),
+        "grid-cols": (
+            responsive: true,
+            css-var: true,
+            class: columns,
+            values: (
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 4,
+                "5": 5,
+                "6": 6,
+                "7": 7,
+                "8": 8,
+                "9": 9,
+                "10": 10,
+                "11": 11,
+                "12": 12,
+            ),
+        ),
+        "grid-gap": (
+            responsive: true,
+            css-var: true,
+            class: gap,
+            values: $grid-gaps,
+        ),
+        "grid-gap-x": (
+            responsive: true,
+            property: column-gap,
+            class: gap-x,
+            values: $grid-gaps,
+        ),
+        "grid-gap-y": (
+            responsive: true,
+            property: row-gap,
+            class: gap-y,
+            values: $grid-gaps,
+        ),
+        "grid-row-start": (
+            responsive: true,
+            property: grid-row-start,
+            class: g-row-start,
+            values: (
+                "auto": auto,
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 4,
+                "5": 5,
+                "6": 6,
+                "7": 7,
+                "8": 8,
+                "9": 9,
+                "10": 10,
+                "11": 11,
+                "12": 12,
+            ),
+        ),
+        "color": (
+            responsive: true,
+            property: color,
+            class: text,
+            local-vars: (
+                "text-opacity": 1,
+            ),
+            values:
+                map-merge(
+                    $utilities-text-colors,
+                    (
+                        "current": currentColor,
+                        "transparent": transparent,
+                        "muted": $text-muted,
+                        "reset": inherit,
+                    )
+                ),
+        ),
+        "background-color": (
+            responsive: true,
+            property: background-color,
+            class: bg,
+            local-vars: (
+                "bg-opacity": 1,
+            ),
+            state: hover,
+            values:
+                map-merge(
+                    $utilities-bg-colors,
+                    (
+                        "current": currentColor,
+                        "transparent": transparent,
+                    )
+                ),
+        ),
+        "order": (
+            responsive: true,
+            property: order,
+            values: (
+                "first": -1,
+                "0": 0,
+                "1": 1,
+                "2": 2,
+                "3": 3,
+                "4": 4,
+                "5": 5,
+                "last": 6,
+            ),
+        ),
+        "overflow": (
+            responsive: true,
+            property: overflow,
+            values: auto hidden visible scroll,
+        ),
+        "overflow-y": (
+            responsive: true,
+            property: overflow-y,
+            values: auto hidden visible scroll,
+        ),
+        "overflow-x": (
+            responsive: true,
+            property: overflow-x,
+            values: auto hidden visible scroll,
+        ),
+        "text-align": (
+            responsive: true,
+            property: text-align,
+            class: text,
+            values: (
+                start: left,
+                end: right,
+                center: center,
+                justify: justify,
+            ),
+        ),
+        "z-index": (
+            responsive: true,
+            property: z-index,
+            class: z,
+            values: (
+                "auto": auto,
+                "10": 10,
+                "20": 20,
+                "30": 30,
+                "40": 40,
+                "50": 50,
+            ),
+        ),
+        "position": (
+            responsive: true,
+            property: position,
+            values: static relative absolute fixed sticky,
+        ),
+        "white-space": (
+            responsive: true,
+            property: white-space,
+            class: text,
+            values: (
+                wrap: normal,
+                nowrap: nowrap,
+            ),
+        ),
+    )
+);

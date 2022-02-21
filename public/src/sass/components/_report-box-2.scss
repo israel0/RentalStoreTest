@@ -1,0 +1,27 @@
+.report-box-2 {
+    @include apply("position-relative");
+    &:before {
+        content: "";
+        width: 90%;
+        background: #f9fafc;
+        box-shadow: 0px 3px 20px #0000000b;
+        left: 0;
+        right: 0;
+        @include apply("h-full mt-3 position-absolute rounded-2 mx-auto");
+    }
+    .report-box-2__indicator {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        @include apply(
+            "d-flex rounded-pill text-white fs-xs ps-2 pe-1 mt-3 me-auto align-items-center fw-medium"
+        );
+    }
+}
+
+.dark {
+    .report-box-2 {
+        &:before {
+            background: #2d3650;
+        }
+    }
+}

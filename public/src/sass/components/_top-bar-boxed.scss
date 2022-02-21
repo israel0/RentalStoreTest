@@ -1,0 +1,5 @@
+.top-bar-boxed {
+    height: 70px;
+    z-index: 51;
+    @include apply("position-relative");
+}

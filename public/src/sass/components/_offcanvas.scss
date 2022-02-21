@@ -1,0 +1,48 @@
+.offcanvas {
+    @include media-breakpoint-up(sm) {
+        width: 460px;
+        &.offcanvas-sm {
+            width: 300px;
+        }
+        &.offcanvas-lg {
+            width: 600px;
+        }
+        &.offcanvas-xl {
+            width: 600px;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        &.offcanvas-xl {
+            width: 900px;
+        }
+    }
+    .offcanvas-header {
+        @include apply("px-5 py-3 border-bottom border-gray-200");
+        .btn-close {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23a0aec0'%3E%3Cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3E%3C/svg%3E");
+            background-size: 53%;
+            @include apply("position-absolute start-0 ms-n12 opacity-100");
+        }
+    }
+    .offcanvas-footer {
+        @include apply("px-5 py-3 w-full border-top border-gray-200");
+    }
+}
+.offcanvas-backdrop {
+    @include apply("!opacity-0");
+}
+.offcanvas-backdrop.show-backdrop {
+    @include apply("!opacity-50");
+}
+
+.dark {
+    .offcanvas {
+        @include apply("bg-dark-3");
+        .offcanvas-header {
+            @include apply("border-dark-5");
+        }
+        .offcanvas-footer {
+            @include apply("border-dark-5");
+        }
+    }
+}

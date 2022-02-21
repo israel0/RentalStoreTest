@@ -1,0 +1,290 @@
+// To RGB
+@function to-rgb($hex-color, $opacity: 1) {
+    $color: $hex-color;
+    @if ($hex-color != transparent and $hex-color != currentColor) {
+        $rgba-color: rgba($hex-color, 0.1);
+        $color-length: string.length($rgba-color + "");
+        $sliced-color: string.slice($rgba-color + "", 1, $color-length - 4) +
+            $opacity +
+            ")";
+        $color: string.unquote($sliced-color);
+    }
+    @return $color;
+}
+
+// Replace String
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(
+                str-slice($string, $index + str-length($search)),
+                $search,
+                $replace
+            );
+    }
+
+    @return $string;
+}
+
+// Remove Item From List
+@function nth-remove($list, $n) {
+    $result: ();
+    $n: if($n < 0, length($list) + $n + 1, $n);
+    $bracketed: is-bracketed($list);
+    $separator: list-separator($list);
+    @for $i from 1 through length($list) {
+        @if $i != $n {
+            $result: append($result, nth($list, $i));
+        }
+    }
+    @return join((), $result, $separator, $bracketed);
+}
+
+// Implode List
+@function nth-implode($list, $separator: "") {
+    $result: "";
+    @if (length($list) == 1) {
+        $result: list.nth($list, 1);
+    } @else {
+        @each $val in $list {
+            $result: $result + $separator + $val;
+        }
+        $result: string.slice($result, 2);
+    }
+    @return $result;
+}
+
+// Flatten Tree Array
+@function flatten($arr, $parentKey...) {
+    $newArr: ();
+    @each $key, $val in $arr {
+        @if type-of($val) == "map" {
+            @if (length($parentKey) != 0) {
+                $newArr: map-merge(
+                    $newArr,
+                    flatten($val, #{$parentKey}-#{$key})
+                );
+            } @else {
+                $newArr: map-merge($newArr, flatten($val, $key));
+            }
+        } @else {
+            @if (length($parentKey) != 0) {
+                $newArr: map-merge($newArr, (#{$parentKey}-#{$key}: $val));
+            } @else {
+                $newArr: map-merge($newArr, (#{$key}: $val));
+            }
+        }
+    }
+
+    @return $newArr;
+}
+
+// Explode String
+@function explode($string, $delimiter) {
+    $result: ();
+    @if $delimiter == "" {
+        @for $i from 1 through str-length($string) {
+            $result: append($result, str-slice($string, $i, $i));
+        }
+        @return $result;
+    }
+    $exploding: true;
+    @while $exploding {
+        $d-index: str-index($string, $delimiter);
+        @if $d-index {
+            @if $d-index > 1 {
+                $result: append($result, str-slice($string, 1, $d-index - 1));
+                $string: str-slice($string, $d-index + str-length($delimiter));
+            } @else if $d-index == 1 {
+                $string: str-slice(
+                    $string,
+                    1,
+                    $d-index + str-length($delimiter)
+                );
+            } @else {
+                $result: append($result, $string);
+                $exploding: false;
+            }
+        } @else {
+            $result: append($result, $string);
+            $exploding: false;
+        }
+    }
+    @return $result;
+}
+
+// Get Matched Value
+@function get-matched-value($utility, $value) {
+    $matched-value: null;
+
+    @if (
+        map-has-key($utility, values, $value) or
+            list.index(map.get($utility, values), $value)
+    ) {
+        $matched-value: (
+            value: $value,
+        );
+    }
+
+    @return $matched-value;
+}
+
+$temp-utilities: ();
+
+// Get Utility
+@function get-utility($classname) {
+    $classname: str-replace($classname, "/", "\\/");
+    $classname: str-replace($classname, ".", "\\.");
+    $is-important: if(string.slice($classname, 1, 1) == "!", true, false);
+    $classname: if(
+        $is-important == true,
+        string.slice($classname, 2),
+        $classname
+    );
+
+    @if (map-has-key($temp-utilities, $classname) == false) {
+        $list: ();
+        $keywords: ();
+        $matched: ();
+
+        @if (string.slice($classname, 1, 1) != "-") {
+            $list: explode($classname, "-");
+        } @else {
+            $list: explode(string.slice($classname, 2), "-");
+            $temp: ();
+            @each $list-item in $list {
+                @if (length($temp) == 0) {
+                    $temp: append($temp, "-#{$list-item}");
+                } @else {
+                    $temp: append($temp, $list-item);
+                }
+            }
+            $list: $temp;
+        }
+
+        @if (length($list) > 1) {
+            @for $i from length($list) through 1 {
+                $string: "";
+                @for $z from 1 through $i {
+                    @if ($z == 1) {
+                        $string: list.nth($list, $z);
+                    } @else {
+                        $string: "#{$string}-#{list.nth($list, $z)}";
+                    }
+                }
+
+                $keywords: append($keywords, $string);
+            }
+        } @else {
+            $keywords: append($keywords, $classname);
+        }
+
+        // Search classname
+        @each $keyword in $keywords {
+            @each $utility-key, $utility in $utilities {
+                @if (
+                    map.get($utility, class) ==
+                        $keyword or
+                        map.get($utility, property) ==
+                        $keyword
+                ) {
+                    $value: string.slice(
+                        $classname,
+                        string.length($keyword) + 2
+                    );
+                    $value: if(string.length($value) == 0, null, $value);
+                    $matched-value: get-matched-value($utility, $value);
+
+                    @if ($matched-value != null) {
+                        $matched: map.set(
+                            $matched,
+                            $utility-key,
+                            (
+                                value:
+                                    if(
+                                        type-of(map.get($utility, values)) ==
+                                            list,
+                                        map-get($matched-value, value),
+                                        map.get(
+                                            $utility,
+                                            values,
+                                            map-get($matched-value, value)
+                                        )
+                                    ),
+                                local-vars: map.get($utility, local-vars),
+                                css-var: map.get($utility, css-var),
+                                class: map.get($utility, class),
+                                property: map.get($utility, property),
+                                is-important: $is-important,
+                            )
+                        );
+                    }
+                }
+            }
+        }
+
+        // Cache result
+        $temp-utilities: map.set($temp-utilities, $classname, $matched) !global;
+
+        @return $matched;
+    } @else {
+        $utility: map.get($temp-utilities, $classname);
+        @each $utility-key in map-keys($utility) {
+            $utility: map.set(
+                $utility,
+                $utility-key,
+                is-important,
+                $is-important
+            );
+        }
+        @return $utility;
+    }
+}
+
+// Apply Classes
+@mixin apply($classes) {
+    @each $class in explode($classes, " ") {
+        $values: get-utility($class);
+        @if (length($values) > 0) {
+            @each $key, $value in $values {
+                @if (map-get($value, local-vars) != null) {
+                    @each $local-var-key,
+                        $local-var in map-get($value, local-vars)
+                    {
+                        --#{$variable-prefix}#{$local-var-key}: #{$local-var};
+                    }
+                }
+
+                @if (
+                    map-get($value, css-var) !=
+                        null and
+                        map-get($value, css-var) ==
+                        true
+                ) {
+                    --#{$variable-prefix}#{map-get($value, class)}: #{map-get(
+                            $value,
+                            value
+                        )}
+                        #{if(
+                            map-get($value, is-important) == true,
+                            "!important",
+                            ""
+                        )};
+                } @else {
+                    @each $property in map-get($value, property) {
+                        #{$property}: #{map-get($value, value)}
+                            #{if(
+                                map-get($value, is-important) == true,
+                                "!important",
+                                ""
+                            )};
+                    }
+                }
+            }
+        } @else {
+            @warn "Can't found .#{$class} class";
+        }
+    }
+}

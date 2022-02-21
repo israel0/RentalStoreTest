@@ -1,0 +1,14 @@
+.progress {
+    .progress-bar {
+        @include apply("rounded");
+    }
+}
+
+.dark {
+    .progress {
+        @include apply("bg-dark-1");
+        .progress-bar {
+            @include apply("!bg-theme-10");
+        }
+    }
+}

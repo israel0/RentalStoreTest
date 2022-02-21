@@ -1,0 +1,7 @@
+.top-bar {
+    height: 67px;
+    z-index: 51;
+    @include apply(
+        "d-flex align-items-center position-relative border-bottom border-theme-5"
+    );
+}

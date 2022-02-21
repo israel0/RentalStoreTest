@@ -1,0 +1,501 @@
+/*
+ |--------------------------------------------------------------------------
+ | Bootstrap Default Configuration
+ |--------------------------------------------------------------------------
+ |
+ | List of all Bootstrap configuration variables can be found
+ | in the following file:
+ |
+ | /node_modules/bootstrap/scss/variables
+ |
+ */
+
+// Theme colors
+$theme-1: #1c3faa;
+$theme-2: #f1f5f8;
+$theme-3: #2e51bb;
+$theme-4: #274ab7;
+$theme-5: #dee7ef;
+$theme-6: #d32929;
+$theme-7: #365a74;
+$theme-8: #d2dfea;
+$theme-9: #91c714;
+$theme-10: #3160d8;
+$theme-11: #f78b00;
+$theme-12: #fbc500;
+$theme-13: #7f9eb9;
+$theme-14: #e6f3ff;
+$theme-15: #8da9be;
+$theme-16: #607f96;
+$theme-17: #ffefd9;
+$theme-18: #d8f8bc;
+$theme-19: #2449af;
+$theme-20: #395ec1;
+$theme-21: #c6d4fd;
+$theme-22: #e8eeff;
+$theme-23: #1a389f;
+$theme-24: #163296;
+$theme-25: #c7d2ff;
+$theme-26: #15329a;
+$theme-27: #203fad;
+$theme-28: #bbc8fd;
+$theme-29: #284eb2;
+$theme-30: #98aff5;
+
+// Dark-mode colors
+$dark-1: #293145;
+$dark-2: #232a3b;
+$dark-3: #313a55;
+$dark-4: #1e2533;
+$dark-5: #3f4865;
+$dark-6: #2b3348;
+$dark-7: #181f29;
+$dark-8: #242b3c;
+
+// Gray colors
+$gray-100: #f7fafc;
+$gray-200: #edf2f7;
+$gray-300: #e2e8f0;
+$gray-400: #cbd5e0;
+$gray-500: #a0aec0;
+$gray-600: #718096;
+$gray-700: #4a5568;
+$gray-800: #2d3748;
+$gray-900: #1a202c;
+
+// Black white colors
+$white: #fff;
+$black: #000;
+
+// Primary colors
+$primary: #1c3faa;
+$secondary: #edf2f7;
+$success: #91c714;
+$info: #4ab3f4;
+$warning: #fbc500;
+$danger: #d32929;
+$light: #f7fafc;
+$dark: #2d3748;
+
+// Social media colors
+$facebook: #3b5998;
+$twitter: #4ab3f4;
+$instagram: #517fa4;
+$linkedin: #0077b5;
+
+// Theme colors
+$theme-colors: (
+    primary: $primary,
+    secondary: $secondary,
+    success: $success,
+    info: $info,
+    warning: $warning,
+    danger: $danger,
+    light: $light,
+    dark: $dark,
+    facebook: $facebook,
+    twitter: $twitter,
+    instagram: $instagram,
+    linkedin: $linkedin,
+);
+
+// Utilities colors
+$utilities-colors: flatten(
+    (
+        theme: (
+            1: $theme-1,
+            2: $theme-2,
+            3: $theme-3,
+            4: $theme-4,
+            5: $theme-5,
+            6: $theme-6,
+            7: $theme-7,
+            8: $theme-8,
+            9: $theme-9,
+            10: $theme-10,
+            11: $theme-11,
+            12: $theme-12,
+            13: $theme-13,
+            14: $theme-14,
+            15: $theme-15,
+            16: $theme-16,
+            17: $theme-17,
+            18: $theme-18,
+            19: $theme-19,
+            20: $theme-20,
+            21: $theme-21,
+            22: $theme-22,
+            23: $theme-23,
+            24: $theme-24,
+            25: $theme-25,
+            26: $theme-26,
+            27: $theme-27,
+            28: $theme-28,
+            29: $theme-29,
+            30: $theme-30,
+        ),
+        dark: (
+            1: $dark-1,
+            2: $dark-2,
+            3: $dark-3,
+            4: $dark-4,
+            5: $dark-5,
+            6: $dark-6,
+            7: $dark-7,
+            8: $dark-8,
+        ),
+        gray: (
+            100: $gray-100,
+            200: $gray-200,
+            300: $gray-300,
+            400: $gray-400,
+            500: $gray-500,
+            600: $gray-600,
+            700: $gray-700,
+            800: $gray-800,
+            900: $gray-900,
+        ),
+        white: #fff,
+        black: #000,
+    )
+);
+
+// Global prefix
+$variable-prefix: bs-;
+
+// Theme colors rgb
+$theme-colors-rgb: map-loop(
+    map-merge($theme-colors, $utilities-colors),
+    to-rgb,
+    "$value"
+);
+$utilities-text-colors: map-loop(
+    map-merge($theme-colors, $utilities-colors),
+    rgba-css-var,
+    "$key",
+    "text"
+);
+$utilities-bg-colors: map-loop(
+    map-merge($theme-colors, $utilities-colors),
+    rgba-css-var,
+    "$key",
+    "bg"
+);
+$utilities-border-colors: map-loop(
+    map-merge($theme-colors, $utilities-colors),
+    rgba-css-var,
+    "$key",
+    "border"
+);
+
+// Table variables
+$table-bg-scale: -80%;
+$table-striped-bg-factor: 0.05;
+$table-striped-bg: rgba($gray-800, $table-striped-bg-factor);
+
+// Table variants
+$table-variants: (
+    "primary": shift-color($primary, $table-bg-scale),
+    "secondary": shift-color($secondary, $table-bg-scale),
+    "success": shift-color($success, $table-bg-scale),
+    "info": shift-color($info, $table-bg-scale),
+    "warning": shift-color($warning, $table-bg-scale),
+    "danger": shift-color($danger, $table-bg-scale),
+    "light": $gray-200,
+    "dark": $gray-700,
+);
+
+// Component active color
+$component-active-color: $white;
+
+// Grid Breakpoint
+$grid-breakpoints: (
+    "xs": 0,
+    "sm": 640px,
+    "md": 768px,
+    "lg": 1024px,
+    "xl": 1280px,
+    "xxl": 1536px,
+);
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+    "px": 1px,
+    "0\\.5": $spacer * 0.125,
+    "1": $spacer * 0.25,
+    "1\\.5": $spacer * 0.375,
+    "2": $spacer * 0.5,
+    "2\\.5": $spacer * 0.625,
+    "3": $spacer * 0.75,
+    "3\\.5": $spacer * 0.875,
+    "4": $spacer * 1,
+    "5": $spacer * 1.25,
+    "6": $spacer * 1.5,
+    "7": $spacer * 1.75,
+    "8": $spacer * 2,
+    "9": $spacer * 2.25,
+    "10": $spacer * 2.5,
+    "11": $spacer * 2.75,
+    "12": $spacer * 3,
+    "14": $spacer * 3.5,
+    "16": $spacer * 4,
+    "20": $spacer * 5,
+    "24": $spacer * 6,
+    "28": $spacer * 7,
+    "32": $spacer * 8,
+    "36": $spacer * 9,
+    "40": $spacer * 10,
+    "44": $spacer * 11,
+    "48": $spacer * 12,
+    "52": $spacer * 13,
+    "56": $spacer * 14,
+    "60": $spacer * 15,
+    "64": $spacer * 16,
+    "72": $spacer * 18,
+    "80": $spacer * 20,
+    "96": $spacer * 24,
+    "1\\/2": 50%,
+    "1\\/3": 33.333333%,
+    "2\\/3": 66.666667%,
+    "1\\/4": 25%,
+    "2\\/4": 50%,
+    "3\\/4": 75%,
+    "1\\/5": 20%,
+    "2\\/5": 40%,
+    "3\\/5": 60%,
+    "4\\/5": 80%,
+    "1\\/6": 16.666667%,
+    "2\\/6": 33.333333%,
+    "3\\/6": 50%,
+    "4\\/6": 66.666667%,
+    "5\\/6": 83.333333%,
+    "1\\/12": 8.333333%,
+    "2\\/12": 16.666667%,
+    "3\\/12": 25%,
+    "4\\/12": 33.333333%,
+    "5\\/12": 41.666667%,
+    "6\\/12": 50%,
+    "7\\/12": 58.333333%,
+    "8\\/12": 66.666667%,
+    "9\\/12": 75%,
+    "10\\/12": 83.333333%,
+    "11\\/12": 91.666667%,
+    "full": 100%,
+);
+
+// Negative margin
+$enable-negative-margins: true;
+
+// Enable CSS grid utilities
+$enable-cssgrid: true;
+
+// Body background & color
+$body-bg: transparent;
+$body-color: $gray-800;
+
+// Border color
+$border-color: map-get($utilities-border-colors, gray-300);
+
+// Font size
+$font-size-base: 0.875rem;
+
+// Line height
+$line-height-3: 0.75rem;
+$line-height-4: 1rem;
+$line-height-5: 1.25rem;
+$line-height-6: 1.5rem;
+$line-height-7: 1.75rem;
+$line-height-8: 2rem;
+$line-height-9: 2.25rem;
+$line-height-10: 2.5rem;
+$line-height-sm: 1.35;
+$line-height-base: 1.429;
+$line-height-lg: 1.608;
+
+// Font family
+$font-family-roboto: Roboto;
+$font-family-base: var(--#{$variable-prefix}font-roboto);
+
+// Font size
+$font-sizes: (
+    "xs": 0.75rem,
+    "sm": 0.875rem,
+    "base": 1rem,
+    "lg": 1.125rem,
+    "xl": 1.25rem,
+    "2xl": 1.5rem,
+    "3xl": 1.875rem,
+    "4xl": 2.25rem,
+    "5xl": 3rem,
+    "6xl": 3.75rem,
+    "7xl": 4.5rem,
+    "8xl": 6rem,
+    "9xl": 8rem,
+);
+
+// Font size line height
+$font-size-line-heights: (
+    "xs": 1rem,
+    "sm": 1.25rem,
+    "base": 1.5rem,
+    "lg": 1.75rem,
+    "xl": 1.75rem,
+    "2xl": 2rem,
+    "3xl": 2.25rem,
+    "4xl": 2.5rem,
+    "5xl": 1,
+    "6xl": 1,
+    "7xl": 1,
+    "8xl": 1,
+    "9xl": 1,
+);
+
+// Font weight
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-bolder: bolder;
+
+// Position
+$position-values: (
+    "0": 0,
+    "50": 50%,
+    "100": 100%,
+);
+
+// Border radius
+$border-radius: 0.25rem;
+$border-radius-sm: 0.125rem;
+$border-radius-md: 0.375rem;
+$border-radius-lg: 0.5rem;
+$border-radius-pill: 50rem;
+
+// Link color
+$link-color: inherit;
+$link-hover-color: inherit;
+
+// Shadow
+$box-shadow: 0 1px 3px 0 rgba($black, 0.1), 0 1px 2px 0 rgba($black, 0.06);
+$box-shadow-sm: 0 1px 2px 0 rgba($black, 0.05);
+$box-shadow-md: 0 4px 6px -1px rgba($black, 0.1),
+    0 2px 4px -1px rgba($black, 0.06);
+$box-shadow-lg: 0 10px 15px -3px rgba($black, 0.1),
+    0 4px 6px -2px rgba($black, 0.05);
+$box-shadow-xl: 0 20px 25px -5px rgba($black, 0.1),
+    0 10px 10px -5px rgba($black, 0.04);
+$box-shadow-inset: inset 0 1px 2px 0 rgba($black, 0.05);
+
+// Grid gap
+$grid-gaps: (
+    "px": 1px,
+    "0": 0px,
+    "0\\.5": $spacer * 0.125,
+    "1": $spacer * 0.25,
+    "1\\.5": $spacer * 0.375,
+    "2": $spacer * 0.5,
+    "2\\.5": $spacer * 0.625,
+    "3": $spacer * 0.75,
+    "3\\.5": $spacer * 0.875,
+    "4": $spacer * 1,
+    "5": $spacer * 1.25,
+    "6": $spacer * 1.5,
+    "7": $spacer * 1.75,
+    "8": $spacer * 2,
+    "9": $spacer * 2.25,
+    "10": $spacer * 2.5,
+    "11": $spacer * 2.75,
+    "12": $spacer * 3,
+    "14": $spacer * 3.5,
+    "16": $spacer * 4,
+    "20": $spacer * 5,
+    "24": $spacer * 6,
+    "28": $spacer * 7,
+    "32": $spacer * 8,
+    "36": $spacer * 9,
+    "40": $spacer * 10,
+    "44": $spacer * 11,
+    "48": $spacer * 12,
+    "52": $spacer * 13,
+    "56": $spacer * 14,
+    "60": $spacer * 15,
+    "64": $spacer * 16,
+    "72": $spacer * 18,
+    "80": $spacer * 20,
+    "96": $spacer * 24,
+);
+
+// Background opacity
+$bg-opacity: (
+    "5": 0.05,
+    "10": 0.1,
+    "15": 0.15,
+    "20": 0.2,
+    "25": 0.25,
+    "30": 0.3,
+    "35": 0.35,
+    "40": 0.4,
+    "45": 0.45,
+    "50": 0.5,
+    "55": 0.55,
+    "60": 0.6,
+    "65": 0.65,
+    "70": 0.7,
+    "75": 0.75,
+    "80": 0.8,
+    "85": 0.85,
+    "90": 0.9,
+    "95": 0.95,
+    "100": 1,
+);
+
+// Border opacity
+$border-opacity: (
+    "5": 0.05,
+    "10": 0.1,
+    "15": 0.15,
+    "20": 0.2,
+    "25": 0.25,
+    "30": 0.3,
+    "35": 0.35,
+    "40": 0.4,
+    "45": 0.45,
+    "50": 0.5,
+    "55": 0.55,
+    "60": 0.6,
+    "65": 0.65,
+    "70": 0.7,
+    "75": 0.75,
+    "80": 0.8,
+    "85": 0.85,
+    "90": 0.9,
+    "95": 0.95,
+    "100": 1,
+);
+
+// Text opacity
+$text-opacity: (
+    "5": 0.05,
+    "10": 0.1,
+    "15": 0.15,
+    "20": 0.2,
+    "25": 0.25,
+    "30": 0.3,
+    "35": 0.35,
+    "40": 0.4,
+    "45": 0.45,
+    "50": 0.5,
+    "55": 0.55,
+    "60": 0.6,
+    "65": 0.65,
+    "70": 0.7,
+    "75": 0.75,
+    "80": 0.8,
+    "85": 0.85,
+    "90": 0.9,
+    "95": 0.95,
+    "100": 1,
+);

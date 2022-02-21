@@ -1,0 +1,24 @@
+.post {
+    .post__tabs {
+        .nav-link {
+            &:hover {
+                @include apply("border-transparent");
+            }
+            &.active {
+                @include apply("bg-white border-transparent text-theme-1");
+            }
+        }
+    }
+}
+
+.dark {
+    .post {
+        .post__tabs {
+            .nav-link {
+                &.active {
+                    @include apply("!bg-dark-3 text-gray-300");
+                }
+            }
+        }
+    }
+}

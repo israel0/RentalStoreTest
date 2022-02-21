@@ -1,0 +1,24 @@
+.search {
+    @include apply("position-relative");
+    .search__input {
+        @include apply(
+            "w-56 shadow-none rounded-pill bg-theme-8 !border-theme-8 pe-8"
+        );
+        &::placeholder {
+            @include apply("text-theme-13");
+        }
+    }
+    .search__icon {
+        @include apply(
+            "w-5 h-5 position-absolute my-auto top-0 bottom-0 me-3 end-0 text-theme-7"
+        );
+    }
+}
+
+.dark {
+    .search {
+        .search__input {
+            @include apply("bg-dark-3 !border-dark-3");
+        }
+    }
+}

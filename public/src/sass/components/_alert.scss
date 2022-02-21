@@ -1,0 +1,90 @@
+.alert {
+    .btn-close {
+        margin-top: -1px;
+        background: transparent;
+        @include apply("opacity-100 color-reset");
+        svg {
+            inset: 0;
+            @include apply("position-absolute m-auto");
+        }
+        &:focus {
+            @include apply("shadow-none");
+        }
+    }
+}
+
+// Alert Colors
+.alert-secondary {
+    @include apply("text-gray-600");
+}
+.alert-success {
+    @include apply("text-white");
+}
+.dark {
+    .alert-secondary {
+        @include apply("bg-dark-5 text-gray-400");
+    }
+    .alert-dark {
+        @include apply("bg-dark-6 text-gray-400");
+    }
+}
+
+// Outline Alert
+.alert-outline-primary {
+    @include apply("border border-primary text-primary");
+}
+.alert-outline-secondary {
+    @include apply("border border-gray-300 text-gray-700");
+}
+.alert-outline-success {
+    @include apply("border border-success text-success");
+}
+.alert-outline-warning {
+    @include apply("border border-warning text-warning");
+}
+.alert-outline-danger {
+    @include apply("border border-danger text-danger");
+}
+.alert-outline-dark {
+    @include apply("border border-dark text-dark");
+}
+.dark {
+    .alert-outline-primary {
+        @include apply("border-theme-3 text-theme-3");
+    }
+    .alert-outline-secondary {
+        @include apply("border-gray-700 text-gray-400");
+    }
+    .alert-outline-success {
+        @include apply("border-success");
+    }
+    .alert-outline-warning {
+        @include apply("border-warning");
+    }
+    .alert-outline-danger {
+        @include apply("border-danger");
+    }
+    .alert-outline-dark {
+        @include apply("border-gray-700 text-gray-500");
+    }
+}
+
+// Alert Soft Colors
+.alert-primary-soft {
+    @include apply("bg-primary text-theme-10 bg-opacity-20");
+}
+.alert-secondary-soft {
+    @include apply("bg-gray-300 text-gray-500 bg-opacity-20");
+}
+.alert-success-soft {
+    @include apply("bg-success text-success bg-opacity-20");
+}
+.alert-warning-soft {
+    @include apply("bg-warning text-theme-11 bg-opacity-20");
+}
+.alert-danger-soft {
+    @include apply("bg-danger text-danger bg-opacity-20");
+}
+.alert-dark-soft {
+    @include apply("bg-dark text-gray-600 bg-opacity-20");
+}

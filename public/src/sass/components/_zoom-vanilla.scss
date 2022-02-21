@@ -1,0 +1,5 @@
+/* purgecss start ignore */
+.zoom-overlay {
+    @include apply("bg-dark-1 bg-opacity-75");
+}
+/* purgecss end ignore */

@@ -1,0 +1,50 @@
+.form-switch {
+    @include apply("d-flex align-items-center");
+    .form-check-input {
+        width: 38px;
+        height: 24px;
+        padding: 1px;
+        background-image: none;
+        @include apply("position-relative mt-0");
+        &:focus:not(:checked) {
+            background-image: none;
+            @include apply("border-gray-300");
+        }
+        &:before {
+            content: "";
+            width: 22px;
+            height: 22px;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+            @include apply(
+                "position-absolute top-0 bottom-0 my-auto rounded-circle"
+            );
+        }
+        &:checked {
+            background-image: none;
+            &::before {
+                margin-left: 13px;
+                @include apply("bg-white");
+            }
+        }
+        &:active {
+            filter: none;
+        }
+    }
+}
+
+.dark {
+    .form-switch {
+        .form-check-input {
+            &:before {
+                @include apply("bg-dark-1");
+            }
+            &:checked {
+                @include apply("bg-theme-21 !border-theme-17");
+                &:before {
+                    @include apply("bg-white");
+                }
+            }
+        }
+    }
+}

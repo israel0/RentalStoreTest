@@ -1,0 +1,8 @@
+.dropzone {
+    @include apply("border-gray-200 border-dashed");
+}
+.dark {
+    .dropzone {
+        @include apply("bg-dark-1");
+    }
+}

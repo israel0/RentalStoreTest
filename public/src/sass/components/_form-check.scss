@@ -1,0 +1,36 @@
+.form-check-input {
+    @include apply("shadow-sm me-2");
+    &:checked {
+        background-size: 80%;
+        &[type="radio"] {
+            background-image: none;
+            @include apply("bg-transparent position-relative");
+            &:before {
+                content: "";
+                width: 10px;
+                height: 10px;
+                transition: all 0.2s ease-in-out;
+                @include apply(
+                    "bg-theme-1 position-absolute rounded-circle top-0 bottom-0 left-0 right-0 m-auto"
+                );
+            }
+        }
+    }
+}
+
+.dark {
+    .form-check {
+        .form-check-label {
+            @include apply("text-gray-500");
+        }
+    }
+    .form-check-input {
+        @include apply("bg-dark-5 !border-dark-5");
+        &:checked {
+            @include apply("bg-dark-5");
+            &:before {
+                @include apply("bg-dark-1");
+            }
+        }
+    }
+}

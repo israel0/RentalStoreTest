@@ -1,0 +1,206 @@
+/* purgecss start ignore */
+.full-calendar {
+    .fc-toolbar {
+        @include media-breakpoint-down(lg) {
+            @include apply("flex-column");
+        }
+        .fc-toolbar-chunk {
+            &:nth-child(1) {
+                @include apply("order-3");
+            }
+            &:nth-child(2) {
+                @include apply("order-1");
+            }
+            &:nth-child(3) {
+                @include apply("order-2");
+                @include media-breakpoint-down(lg) {
+                    @include apply("my-3");
+                }
+                .fc-button-group {
+                    @include media-breakpoint-down(sm) {
+                        @include apply("d-block");
+                    }
+                    button {
+                        @include apply("w-20");
+                        @include media-breakpoint-down(sm) {
+                            @include apply("w-full rounded-2 mb-2");
+                        }
+                    }
+                }
+            }
+        }
+        .fc-toolbar-title {
+            @include apply("fs-lg fw-medium");
+        }
+    }
+    .fc-toolbar-chunk .fc-button-primary {
+        &:first-child {
+            border-top-left-radius: 0.375rem;
+            border-bottom-left-radius: 0.375rem;
+        }
+        &:last-child {
+            border-top-right-radius: 0.375rem;
+            border-bottom-right-radius: 0.375rem;
+        }
+    }
+    &.fc-theme-standard {
+        .fc-scrollgrid,
+        th,
+        td,
+        .fc-list {
+            @include apply("border-gray-200");
+        }
+    }
+    table {
+        @include apply("rounded-2");
+        tr th {
+            @include apply("px-5 py-3");
+            @include media-breakpoint-down(sm) {
+                @include apply("px-0");
+            }
+        }
+    }
+    .fc-daygrid-event-harness {
+        @include apply("mx-5");
+    }
+    .fc-h-event {
+        @include apply("bg-theme-1 border-theme-1 rounded-2");
+    }
+    .fc-event-title-container {
+        @include apply("py-1 px-2 fs-xs");
+    }
+    .fc-daygrid-event {
+        @include apply("fs-xs");
+    }
+    .fc-daygrid-event-dot {
+        @include apply("border-theme-1 me-2");
+    }
+    .fc-daygrid-dot-event .fc-event-title {
+        @include apply("fw-medium");
+    }
+    .fc-col-header-cell-cushion {
+        @include apply("fw-medium");
+    }
+    &.fc .fc-view-harness {
+        @include media-breakpoint-down(sm) {
+            min-height: 400px !important;
+        }
+    }
+    &.fc .fc-daygrid-day-frame {
+        @include media-breakpoint-down(sm) {
+            min-height: 60px;
+        }
+    }
+    .fc-daygrid-more-link {
+        @include apply("fs-sm");
+        @include media-breakpoint-down(md) {
+            font-size: 10px;
+            @include apply("text-gray-600");
+        }
+        @include media-breakpoint-down(sm) {
+            line-height: 10px;
+            @include apply("ps-0 d-block mt-n3");
+        }
+    }
+    .fc-daygrid-day-bottom {
+        @include apply("pt-1");
+    }
+    .fc-day-other {
+        @include apply("bg-gray-100");
+    }
+    .fc-button-primary {
+        --bs-border-opacity: 1;
+        border-color: rgba(237, 242, 247, var(--bs-border-opacity)) !important;
+        --bs-bg-opacity: 1;
+        background-color: transparent !important;
+        --bs-text-opacity: 1;
+        color: rgba(113, 128, 150, var(--bs-text-opacity)) !important;
+        text-transform: capitalize !important;
+        padding: 0.4em 0.65em !important;
+        display: inline-block !important;
+        font-weight: 400 !important;
+        @extend .btn;
+        .fc-icon {
+            font-size: 1.2em !important;
+        }
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+    .fc-button-primary:not(:disabled):active,
+    .fc-button-primary:not(:disabled).fc-button-active {
+        color: #ffffff !important;
+        border-color: rgba(28, 63, 170, var(--bs-bg-opacity)) !important;
+        background-color: rgba(28, 63, 170, var(--bs-bg-opacity)) !important;
+    }
+    .fc-list-day-cushion {
+        --bs-bg-opacity: 1;
+        background-color: rgba(237, 242, 247, var(--bs-bg-opacity)) !important;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+    .fc-list-event td {
+        @include apply("px-5 py-3");
+    }
+    .fc-list-event-dot {
+        --bs-border-opacity: 1;
+        border-color: rgba(28, 63, 170, var(--bs-border-opacity)) !important;
+    }
+    .fc-v-event {
+        @include apply("border-theme-1 bg-theme-1");
+    }
+    .fc-event-time {
+        font-size: 0.75rem !important;
+        @include apply("px-0.5");
+    }
+    .fc-daygrid-more-link {
+        @include apply("ps-2");
+    }
+}
+
+.dark {
+    .full-calendar {
+        &.fc-theme-standard {
+            .fc-scrollgrid,
+            th,
+            td,
+            .fc-list {
+                @include apply("border-dark-5");
+            }
+        }
+        .fc-day-other {
+            @include apply("bg-dark-1");
+        }
+        .fc-button-primary {
+            border-color: rgba(41, 49, 69, var(--bs-bg-opacity)) !important;
+            background-color: rgba(41, 49, 69, var(--bs-bg-opacity)) !important;
+            color: rgba(203, 213, 224, var(--bs-text-opacity)) !important;
+        }
+        .fc-button-primary:not(:disabled):active,
+        .fc-button-primary:not(:disabled).fc-button-active {
+            border-color: rgba(28, 63, 170, var(--bs-bg-opacity)) !important;
+            background-color: rgba(
+                28,
+                63,
+                170,
+                var(--bs-bg-opacity)
+            ) !important;
+        }
+        .fc-day-today {
+            @include apply("bg-dark-1");
+        }
+        .fc-list-day-cushion {
+            --bs-bg-opacity: 1;
+            background-color: rgba(41, 49, 69, var(--bs-bg-opacity)) !important;
+        }
+        .fc-event:hover td {
+            @include apply("border-dark-3 bg-dark-3");
+        }
+        .fc-v-event {
+            @include apply("shadow-none border-dark-1 bg-dark-1");
+        }
+    }
+}
+/* purgecss end ignore */

@@ -1,0 +1,290 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+@use "sass:color";
+@use "sass:math";
+
+/*
+ |--------------------------------------------------------------------------
+ | Fonts
+ |--------------------------------------------------------------------------
+ |
+ | Import all fonts used in the template, the font configuration can be
+ | found in the "config.scss" file.
+ |
+ */
+@import "fonts/roboto";
+
+/*
+ |--------------------------------------------------------------------------
+ | Mixins
+ |--------------------------------------------------------------------------
+ |
+ | Import helper mixins.
+ |
+ */
+@import "helpers";
+
+/*
+ |--------------------------------------------------------------------------
+ | Configurations
+ |--------------------------------------------------------------------------
+ |
+ | List of custom configuration files to override Bootstrap configuration.
+ |
+ | Please check the documentation below more details:
+ | https://getbootstrap.com/docs/5.1/customize/sass/#importing
+ |
+ */
+@import "~bootstrap/scss/functions";
+
+// Custom configurations
+@import "config";
+@import "button";
+@import "table";
+@import "modal";
+@import "alert";
+@import "offcanvas";
+@import "accordion";
+@import "form-control";
+@import "input-group";
+@import "form-select";
+@import "checks-radios";
+@import "progress";
+@import "dropdown";
+@import "nav-tabs";
+@import "pagination";
+
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+/*
+ |--------------------------------------------------------------------------
+ | Bootstrap Utility API
+ |--------------------------------------------------------------------------
+ |
+ | List of extended Bootstrap Utility API's.
+ |
+ | Please check the documentation below more details:
+ | https://getbootstrap.com/docs/5.1/utilities/api/
+ |
+ */
+@import "utilities";
+
+/*
+ |--------------------------------------------------------------------------
+ | Bootstrap Default Components
+ |--------------------------------------------------------------------------
+ |
+ | Import Bootstrap components.
+ |
+ | Please check the documentation below more details:
+ | https://getbootstrap.com/docs/5.1/customize/sass/#importing
+ |
+ */
+
+/* purgecss start ignore */
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/placeholders";
+/* purgecss end ignore */
+
+/*
+ |--------------------------------------------------------------------------
+ | 3rd Party Libraries
+ |--------------------------------------------------------------------------
+ |
+ | Import 3rd party library CSS/SASS files. Inline purgeCSS safelist applied
+ | to prevent vendor styles from getting purged.
+ |
+ | Please check the documentation below for more details:
+ | https://purgecss.com/safelisting.html#in-the-css-directly
+ |
+ */
+
+/* purgecss start ignore */
+@import "~highlight.js/scss/github";
+@import "~tabulator-tables/dist/css/tabulator";
+@import "~toastify-js/src/toastify";
+@import "~tippy.js/dist/tippy";
+@import "~tippy.js/themes/light";
+@import "~tippy.js/dist/svg-arrow";
+@import "~tippy.js/animations/shift-away";
+@import "~tom-select/src/scss/tom-select";
+@import "~dropzone/dist/dropzone";
+@import "~zoom-vanilla.js/dist/zoom";
+/* purgecss end ignore */
+
+/*
+ |--------------------------------------------------------------------------
+ | Root Variables
+ |--------------------------------------------------------------------------
+ |
+ | List of CSS root variables that not provided by Bootstrap.
+ |
+ */
+@import "root";
+
+/*
+ |--------------------------------------------------------------------------
+ | Reboot
+ |--------------------------------------------------------------------------
+ |
+ | Custom reboot styles for some elements.
+ |
+ */
+@import "reboot";
+
+/*
+ |--------------------------------------------------------------------------
+ | Bootstrap Helpers
+ |--------------------------------------------------------------------------
+ |
+ | Import Bootstrap helpers.
+ |
+ | Please check the documentation below more details:
+ | https://getbootstrap.com/docs/5.1/helpers/
+ |
+ */
+@import "~bootstrap/scss/helpers";
+
+/*
+ |--------------------------------------------------------------------------
+ | Bootstrap Utility API
+ |--------------------------------------------------------------------------
+ |
+ | Import Bootstrap utility API.
+ |
+ */
+@import "~bootstrap/scss/utilities/api";
+
+/*
+ |--------------------------------------------------------------------------
+ | Bootstrap Components Style Override
+ |--------------------------------------------------------------------------
+ |
+ | The listed files contains style modification/override that can't be
+ | achieved by customizing default Bootstrap variables.
+ |
+ */
+@import "components/form-control";
+@import "components/form-help";
+@import "components/form-select";
+@import "components/form-check";
+@import "components/form-switch";
+@import "components/form-inline";
+@import "components/input-group";
+@import "components/btn";
+@import "components/table";
+@import "components/accordion";
+@import "components/dropdown";
+@import "components/modal";
+@import "components/offcanvas";
+@import "components/alert";
+@import "components/progress";
+@import "components/nav-tabs";
+@import "components/pagination";
+
+/*
+ |--------------------------------------------------------------------------
+ | Components
+ |--------------------------------------------------------------------------
+ |
+ | Import theme components.
+ |
+ */
+@import "components/global";
+@import "components/main";
+@import "components/top-bar";
+@import "components/image-fit";
+@import "components/intro";
+@import "components/zoom-in";
+@import "components/box";
+@import "components/file";
+@import "components/top-bar-boxed";
+@import "components/breadcrumb";
+@import "components/search";
+@import "components/search-result";
+@import "components/notification";
+@import "components/notification-content";
+@import "components/account-menu";
+@import "components/feather-icon";
+@import "components/side-nav";
+@import "components/top-nav";
+@import "components/content";
+@import "components/tabulator";
+@import "components/scrollbar";
+@import "components/source-preview";
+@import "components/table-report";
+@import "components/tiny-slider";
+@import "components/toastify";
+@import "components/toastify-content";
+@import "components/tippy";
+@import "components/litepicker";
+@import "components/tom-select";
+@import "components/dropzone";
+@import "components/ckeditor";
+@import "components/zoom-vanilla";
+@import "components/report-box";
+@import "components/report-box-2";
+@import "components/report-box-3";
+@import "components/report-box-4";
+@import "components/report-maps";
+@import "components/ads-box";
+@import "components/report-timeline";
+@import "components/report-chart";
+@import "components/inbox-filter";
+@import "components/inbox";
+@import "components/pos";
+@import "components/chat";
+@import "components/typing-dots";
+@import "components/chat-dropdown";
+@import "components/post";
+@import "components/event";
+@import "components/full-calendar";
+@import "components/wizard";
+@import "components/blog";
+@import "components/news";
+@import "components/error-page";
+@import "components/login";
+@import "components/dark-mode-switcher";
+@import "components/mobile-menu";
+
+/*
+ |--------------------------------------------------------------------------
+ | Custom utilities
+ |--------------------------------------------------------------------------
+ |
+ | List of utility classes that can't be written with Bootstrap utility API
+ | including "dark-mode" utilities.
+ |
+ */
+@import "components/utilities";

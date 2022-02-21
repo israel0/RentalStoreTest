@@ -1,0 +1,7 @@
+.image-fit {
+    @include apply("position-relative");
+    & > img {
+        object-fit: cover;
+        @include apply("position-absolute w-full h-full");
+    }
+}

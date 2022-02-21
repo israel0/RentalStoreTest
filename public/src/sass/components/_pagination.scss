@@ -1,0 +1,45 @@
+.pagination {
+    .page-item {
+        @include media-breakpoint-down(sm) {
+            @include apply("flex-1");
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(7),
+            &:nth-child(8),
+            &:nth-child(9) {
+                .page-link {
+                    @include apply("px-1");
+                }
+            }
+        }
+        &.active {
+            .page-link {
+                @extend .box;
+                @include apply("fw-medium");
+            }
+        }
+        .page-link {
+            min-width: 40px;
+            @extend .btn;
+            @include apply("text-center rounded-2 fw-normal shadow-none me-2");
+            @include media-breakpoint-down(sm) {
+                @include apply("min-vw-0 me-0");
+            }
+        }
+    }
+}
+.dark {
+    .pagination {
+        .page-item {
+            &.active {
+                .page-link {
+                    @include apply("bg-dark-3");
+                }
+            }
+            .page-link {
+                @include apply("text-gray-300");
+            }
+        }
+    }
+}

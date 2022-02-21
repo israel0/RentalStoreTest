@@ -1,0 +1,19 @@
+.modal {
+    .modal-footer {
+        @include apply("py-2");
+    }
+}
+
+.dark {
+    .modal {
+        .modal-content {
+            @include apply("bg-dark-3");
+        }
+        .modal-header {
+            @include apply("border-dark-5");
+        }
+        .modal-footer {
+            @include apply("border-dark-5");
+        }
+    }
+}

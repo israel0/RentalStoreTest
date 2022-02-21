@@ -1,0 +1,63 @@
+.nav {
+    &.nav-boxed-tabs {
+        .nav-item {
+            .nav-link {
+                box-shadow: 0px 3px 20px #0000000b;
+                @include apply("fw-normal rounded");
+                &.active {
+                    @include apply("bg-theme-1 text-white fw-medium");
+                }
+            }
+        }
+    }
+    &.nav-link-tabs {
+        .nav-item {
+            .nav-link {
+                @include apply(
+                    "text-gray-800 py-4 border-bottom-2 border-transparent fw-normal"
+                );
+                &.active {
+                    @include apply("border-theme-1 fw-medium");
+                }
+            }
+        }
+    }
+    .nav-item {
+        .nav-link {
+            @include apply("fw-medium");
+        }
+    }
+}
+.dark {
+    .nav {
+        &:not(.nav-boxed-tabs):not(.nav-link-tabs) {
+            .nav-item {
+                .nav-link {
+                    @include apply("text-gray-500");
+                    &.active {
+                        @include apply("text-white bg-theme-1");
+                    }
+                }
+            }
+        }
+        &.nav-boxed-tabs {
+            .nav-item {
+                .nav-link {
+                    &:not(.active) {
+                        @include apply("bg-dark-5 text-gray-300");
+                    }
+                    &.active {
+                        @include apply("bg-theme-1");
+                    }
+                }
+            }
+        }
+        &.nav-link-tabs {
+            .nav-item {
+                .nav-link {
+                    @include apply("text-gray-300");
+                }
+            }
+        }
+    }
+}

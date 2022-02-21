@@ -1,0 +1,209 @@
+/* purgecss start ignore */
+.tabulator-print-fullscreen-hide:before {
+    content: "";
+    @include apply("position-fixed bg-white top-0 left-0 w-full h-screen");
+}
+.tabulator {
+    @include apply("overflow-hidden border-0 bg-transparent");
+    .tabulator-header {
+        @include apply(
+            "fw-medium text-current border-top border-bottom border-gray-300 bg-transparent"
+        );
+        .tabulator-headers {
+            .tabulator-col {
+                @include apply("bg-transparent border-end-0");
+                &:hover {
+                    @include apply("bg-gray-200");
+                }
+                .tabulator-col-content {
+                    @include apply("px-5 py-3");
+                    .tabulator-col-title {
+                        @include apply("pe-0");
+                    }
+                    .tabulator-arrow {
+                        top: -3px;
+                        border-left-width: 5px;
+                        border-right-width: 5px;
+                        @include apply("bottom-0 my-auto");
+                    }
+                }
+                &.tabulator-sortable[aria-sort="none"]
+                    .tabulator-col-content
+                    .tabulator-arrow {
+                    border-bottom-color: #cbd5e0;
+                }
+            }
+        }
+    }
+    .tabulator-row {
+        @include apply("border-bottom border-gray-300");
+        &:hover,
+        &.tabulator-row-even:hover {
+            @include apply("bg-gray-300");
+        }
+        &.tabulator-row-even {
+            @include apply("bg-gray-200");
+        }
+        .tabulator-cell {
+            @include apply("border-end-0 px-5 py-3");
+            &.tabulator-row-handle {
+                @include apply("px-0");
+            }
+            .tabulator-responsive-collapse-toggle {
+                @include apply("w-4 h-4 me-n5 bg-gray-500 rounded-circle");
+            }
+        }
+        .tabulator-responsive-collapse {
+            @include apply("p-3 border-gray-300 border-bottom-0");
+            td {
+                @include apply("p-2");
+                strong {
+                    @include apply("fw-medium");
+                }
+            }
+        }
+    }
+    .tabulator-footer {
+        @include apply("bg-transparent border-top-0 p-0 mt-2");
+        @include media-breakpoint-down(md) {
+            white-space: normal;
+        }
+        .tabulator-paginator {
+            @include apply("d-flex align-items-center");
+            @include media-breakpoint-down(md) {
+                @include apply("d-block text-start");
+            }
+            > label {
+                @include apply("fw-normal text-gray-800");
+            }
+            .tabulator-page-size {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(74, 85, 104)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+                background-size: 15px;
+                background-position: center right 0.6rem;
+                background-repeat: no-repeat;
+                appearance: none;
+                @include apply(
+                    "py-2 ps-3 pe-8 ms-2 lh-base me-auto rounded-2 bg-white border-gray-300"
+                );
+                @include media-breakpoint-down(md) {
+                    @include apply("me-3");
+                }
+            }
+            .tabulator-page {
+                min-width: 40px;
+                @extend .btn;
+                @include apply(
+                    "fw-normal d-inline-flex align-items-center justify-content-center border-transparent text-gray-800"
+                );
+                @include media-breakpoint-down(sm) {
+                    @include apply("me-0 px-1");
+                }
+                &:hover {
+                    @include apply("bg-gray-300 text-current");
+                }
+                &.active {
+                    @include apply("bg-gray-200 fw-medium");
+                    &:hover {
+                        @include apply("bg-gray-200");
+                    }
+                }
+                &[data-page="first"],
+                &[data-page="prev"],
+                &[data-page="next"],
+                &[data-page="last"] {
+                    @include apply("w-5 text-transparent");
+                }
+                &[data-page="first"] {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%232d3748' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' class='css-i6dzq1'%3E%3Cpolyline points='11 17 6 12 11 7'%3E%3C/polyline%3E%3Cpolyline points='18 17 13 12 18 7'%3E%3C/polyline%3E%3C/svg%3E");
+                    background-size: 50%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                &[data-page="prev"] {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%232d3748' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' class='css-i6dzq1'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E");
+                    background-size: 45%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                &[data-page="next"] {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%232d3748' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' class='css-i6dzq1'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+                    background-size: 45%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                &[data-page="last"] {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%232d3748' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' class='css-i6dzq1'%3E%3Cpolyline points='13 17 18 12 13 7'%3E%3C/polyline%3E%3Cpolyline points='6 17 11 12 6 7'%3E%3C/polyline%3E%3C/svg%3E");
+                    background-size: 50%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+    .tabulator-tableHolder .tabulator-placeholder span {
+        @include apply("text-gray-600 fw-normal fs-sm");
+    }
+    .tabulator-loader {
+        background: #ffffffbd;
+        .tabulator-loader-msg {
+            @include apply("fw-normal fs-base bg-transparent");
+            &.tabulator-loading {
+                @include apply("border-0 text-gray-800");
+            }
+            &.tabulator-error {
+                @include apply("border-0 text-theme-6");
+            }
+        }
+    }
+}
+
+.dark {
+    .tabulator {
+        .tabulator-header {
+            @include apply("border-dark-5");
+            .tabulator-headers .tabulator-col:hover {
+                @include apply("bg-dark-2");
+            }
+        }
+        .tabulator-table {
+            @include apply("bg-transparent text-gray-300");
+            .tabulator-row {
+                @include apply("bg-transparent border-transparent");
+                &:hover,
+                &.tabulator-row-even:hover {
+                    @include apply("bg-dark-2");
+                }
+                &.tabulator-row-even {
+                    @include apply("bg-dark-1");
+                }
+            }
+        }
+        .tabulator-footer {
+            .tabulator-paginator {
+                > label {
+                    @include apply("text-gray-300");
+                }
+                .tabulator-page-size {
+                    @include apply("bg-dark-2 border-dark-4 text-gray-300");
+                }
+                .tabulator-page {
+                    @include apply("bg-transparent text-gray-300");
+                    &:hover {
+                        @include apply("bg-dark-1");
+                    }
+                    &.active,
+                    &.active:hover {
+                        @include apply("bg-dark-2");
+                    }
+                }
+            }
+        }
+        .tabulator-loader {
+            background: #0000003d;
+            .tabulator-loader-msg.tabulator-loading {
+                @include apply("text-gray-300");
+            }
+        }
+    }
+}
+/* purgecss end ignore */

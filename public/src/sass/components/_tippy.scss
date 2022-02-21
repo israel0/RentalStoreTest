@@ -1,0 +1,47 @@
+/* purgecss start ignore */
+.tooltip-content {
+    left: 10000px;
+    @include apply("position-fixed");
+}
+.tippy-box {
+    @include apply("rounded-2");
+    .tippy-content {
+        @include apply("px-3 py-1.5");
+    }
+}
+.tippy-popper {
+    &[x-placement="left"],
+    &[x-placement="right"],
+    &[x-placement="left-start"],
+    &[x-placement="left-end"],
+    &[x-placement="right-start"],
+    &[x-placement="right-end"] {
+        .tippy-roundarrow,
+        .tippy-arrow {
+            @include apply("top-0 bottom-0 my-auto");
+        }
+    }
+    &[x-placement="top"],
+    &[x-placement="bottom"],
+    &[x-placement="top-start"],
+    &[x-placement="top-end"],
+    &[x-placement="bottom-start"],
+    &[x-placement="bottom-end"] {
+        .tippy-roundarrow,
+        .tippy-arrow {
+            @include apply("start-0 end-0 mx-auto");
+        }
+    }
+}
+
+.dark {
+    .tippy-box {
+        box-shadow: 0 0 20px 4px #00000026, 0 4px 80px -8px #24282f40,
+            0 4px 4px -2px #5b5e6926;
+        @include apply("bg-dark-1 text-white");
+        & > .tippy-svg-arrow {
+            fill: #2a3244;
+        }
+    }
+}
+/* purgecss end ignore */

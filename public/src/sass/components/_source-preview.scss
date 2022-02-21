@@ -1,0 +1,16 @@
+.source-preview {
+    overflow-x: hidden;
+    @include apply("position-relative");
+    code {
+        &:before {
+            content: "HTML";
+            border-radius: 0 0 $border-radius $border-radius;
+            @include apply(
+                "font-roboto fw-medium px-4 py-2 d-block position-absolute top-0 right-0 bg-gray-300 bg-opacity-70"
+            );
+        }
+        &.javascript:before {
+            content: "JS";
+        }
+    }
+}

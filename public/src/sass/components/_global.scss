@@ -1,0 +1,25 @@
+html {
+    @include apply("bg-theme-1");
+    @include media-breakpoint-down(sm) {
+        overflow-x: hidden;
+    }
+    &.dark {
+        @include apply("bg-dark-2");
+        body {
+            @include apply("text-gray-300");
+            *,
+            ::before,
+            ::after {
+                @include apply("border-dark-3");
+            }
+        }
+    }
+    body {
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        @include apply("pt-3 px-8");
+        @include media-breakpoint-down(sm) {
+            @include apply("px-3");
+        }
+    }
+}

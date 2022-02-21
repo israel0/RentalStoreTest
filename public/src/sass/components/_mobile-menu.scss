@@ -1,0 +1,85 @@
+.mobile-menu {
+    @include apply("border-bottom border-theme-29 mt-n5 mx-n8 mb-6");
+    @include media-breakpoint-down(sm) {
+        @include apply("mx-n3");
+    }
+    .mobile-menu-bar {
+        height: 70px;
+        @include apply("px-8 d-flex align-items-center");
+        @include media-breakpoint-down(sm) {
+            @include apply("px-3");
+        }
+        .mobile-menu-bar__toggler svg {
+            transform: rotate(-90deg);
+        }
+    }
+    ul {
+        &.mobile-menu-wrapper {
+            @include apply("d-none");
+        }
+        &.menu__sub-open {
+            @include apply("d-block");
+        }
+        li {
+            max-width: 1280px;
+            @include apply("w-full mx-auto");
+            ul {
+                @include apply("d-none bg-theme-23 rounded-2 mx-6 my-1");
+                @include media-breakpoint-down(sm) {
+                    @include apply("mx-3");
+                }
+                .menu {
+                    @include apply("px-4");
+                }
+                ul {
+                    @include apply("d-none bg-theme-24 rounded-2 mx-0");
+                }
+            }
+        }
+    }
+    .menu__devider {
+        @include apply("w-full h-px bg-theme-29 position-relative");
+    }
+    .menu {
+        height: 50px;
+        @include apply("d-flex align-items-center text-white px-10");
+        @include media-breakpoint-down(sm) {
+            @include apply("px-5");
+        }
+        .menu__title {
+            @include apply("w-full ms-3 d-flex align-items-center");
+            .menu__sub-icon {
+                transition-property: background-color, border-color, color, fill,
+                    stroke, opacity, box-shadow, transform, filter,
+                    backdrop-filter;
+                transition-duration: 100ms;
+                transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+                @include apply("ms-auto");
+                svg {
+                    @include apply("w-5 h-5");
+                }
+                &.menu__sub-icon--active {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .mobile-menu {
+        ul {
+            li {
+                ul {
+                    @include apply("bg-dark-4");
+                    ul {
+                        @include apply("bg-dark-7");
+                    }
+                }
+            }
+        }
+        .menu__devider {
+            @include apply("bg-dark-3");
+        }
+    }
+}
