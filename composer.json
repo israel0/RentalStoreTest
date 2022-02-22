@@ -21,6 +21,7 @@
         "unicodeveloper/laravel-paystack": "^1.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
         "barryvdh/laravel-ide-helper": "^2.8",
         "facade/ignition": "^2.5",
         "mockery/mockery": "^1.4.2",

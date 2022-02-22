@@ -11,4 +11,6 @@
  php artisan migrate --seed
 
 
+ php artisan storage:link 
+
  # ISRAEL AKINSOLA | seyeakinsola@gmail.com

@@ -35,8 +35,8 @@ class ItemTableSeeder extends Seeder
                 'description' => 'Hospital Bed is an Equipment useed in Hospitals',
                 'price' => 30,
                 'available_at' => \DB::raw('CURRENT_TIMESTAMP'),
-                'transmission' => 0,
-                'image' => '127.0.0.1:8000/dist/images/profile-13.jpg',
+                'transmission' => 'No Action Yet',
+                'image' => 'http://127.0.0.1:8000/dist/images/profile-13.jpg',
             ],
 
             [
@@ -48,22 +48,22 @@ class ItemTableSeeder extends Seeder
                 'description' => 'Hospital Bed is an Equipment useed in Hospitals',
                 'price' => 30,
                 'available_at' => \DB::raw('CURRENT_TIMESTAMP'),
-                'transmission' => 0,
-                'image' => '127.0.0.1:8000/dist/images/profile-13.jpg',
+                'transmission' => 'No Action Yet',
+                'image' => 'http://127.0.0.1:8000/dist/images/profile-13.jpg',
             ],
 
 
             [
                 'name' => 'Hospital Bed',
-                'item_id' => 2,
+                'item_id' => 1,
                 'user_id' => 2,
                 'standard_id' => 2,
                 'state_id' => 2,
                 'description' => 'Hospital Bed is an Equipment useed in Hospitals',
                 'price' => 30,
                 'available_at' => \DB::raw('CURRENT_TIMESTAMP'),
-                'transmission' => 0,
-                'image' => '127.0.0.1:8000/dist/images/profile-13.jpg',
+                'transmission' => 'No Action Yet',
+                'image' => 'http://127.0.0.1:8000/dist/images/profile-13.jpg',
             ],
 
   

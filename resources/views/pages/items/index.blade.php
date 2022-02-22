@@ -75,7 +75,7 @@
                         @elseif($item->transmission === 'Rented')
                          Rented
                         @else
-                         Pending
+                         No Action Yet
                         @endif
                         
                         </div>  
