@@ -16,6 +16,7 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
+        "profclems/postman-collection-generator": "^1.2",
         "spatie/laravel-activitylog": "^3.17",
         "unicodeveloper/laravel-paystack": "^1.0"
     },
